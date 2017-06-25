@@ -13,15 +13,18 @@
     if (usuario.equals("")) {
         response.sendRedirect("index.jsp");
     } else {
-        ControladorUsuarios cus = new ControladorUsuarios();
-        if ("Docente".equals(cus.rol(usuario))) {
-            String bienvenida="Bienvenido Profesor "+cus.nombreUsuario(usuario);
-        }else{
+        ControladorUsuarios con = new ControladorUsuarios();
+        if ("Docente".equals(con.rol(usuario))) {
+        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
+            response.sendRedirect("menu.jsp");
+        } else if ("Director".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_director.jsp");
+        } else if ("Estudiante".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_estudiante.jsp");
+        } else {
             response.sendRedirect("index.jsp");
-            
         }
     }
-
 %>
 
 <!DOCTYPE html>

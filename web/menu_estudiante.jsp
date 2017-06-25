@@ -3,6 +3,7 @@
     Created on : 21/06/2017, 11:26:31 PM
     Author     : WarMachine
 --%>
+<%@page import="Controlador.ControladorUsuarios"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 
 <%
@@ -10,8 +11,19 @@
     String usuario = (String) objsession.getAttribute("usuario");
     if (usuario.equals("")) {
         response.sendRedirect("index.jsp");
+    } else {
+        ControladorUsuarios con = new ControladorUsuarios();
+        if ("Estudiante".equals(con.rol(usuario))) {
+        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
+            response.sendRedirect("menu.jsp");
+        } else if ("Docente".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_docente.jsp");
+        } else if ("Director".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_director.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
     }
-
 %>
 
 <!DOCTYPE html>
