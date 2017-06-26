@@ -35,8 +35,8 @@ public class registrarpersona extends HttpServlet {
         response.setContentType("text/html; charset=iso-8859-1");
                 PrintWriter out = response.getWriter();
         Materia mat = new Materia();
-        mat.setnombreMateria(request.getParameter("nombremateria"));
-        mat.setdescripcionMateria(request.getParameter("descripcionmateria"));
+        mat.setNombreMateria(request.getParameter("nombremateria"));
+        mat.setDescripcionMateria(request.getParameter("descripcionmateria"));
         Materia_model matmodel = new Materia_model();
         if (matmodel.insertarMateria(mat)) {
             out.print("true");
