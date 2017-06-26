@@ -17,29 +17,29 @@ public class Materia {
     
     public Materia() {
     }
-    
-    public void setidMateria(int idUsuario) {
-        this.idMateria = idMateria;
-    }
 
-    public void setnombreMateria(String nombreMateria) {
-        this.nombreMateria = nombreMateria;
-    }
-
-    public void setdescripcionMateria(String descripcionMateria) {
-        this.descripcionMateria = descripcionMateria;
-    }
-    
-    public int getidMateria() {
+    public int getIdMateria() {
         return idMateria;
     }
 
-    public String getnombreMateria() {
+    public String getNombreMateria() {
         return nombreMateria;
     }
 
-    public int getdescripcionMateria() {
+    public String getDescripcionMateria() {
         return descripcionMateria;
+    }
+    
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
+    }
+
+    public void setNombreMateria(String nombreMateria) {
+        this.nombreMateria = nombreMateria;
+    }
+
+    public void setDescripcionMateria(String descripcionMateria) {
+        this.descripcionMateria = descripcionMateria;
     }
     
 }
