@@ -21,6 +21,7 @@
 
         <div id="wrapper">
             <%@include file="nav.jsp" %>
+
             <div id="page-wrapper">
 
                 <div class="panel-heading">
@@ -29,8 +30,8 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="#home-pills" data-toggle="tab" aria-expanded="true">Crear</a>
+                    <ul class="nav nav-tabs">
+                        <li class=""><a href="#crear" data-toggle="tab" aria-expanded="false">Crear</a>
                         </li>
                         <li class=""><a href="#profile-pills" data-toggle="tab" aria-expanded="false">Actualizar</a>
                         </li>
@@ -42,7 +43,7 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane fade" id="home-pills">
+                        <div class="tab-pane fade" id="crear">
                             </br>
                             <div class="col-md-6">
                                 <form action="reg-persona.do" id="idPersona">
@@ -75,10 +76,6 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="home-pills">
-                            <h4>Home Tab</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
                         <div class="tab-pane fade" id="profile-pills">
                             <h4>Profile Tab</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -87,7 +84,7 @@
                             <h4>Messages Tab</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
-                        <div class="tab-pane fade active in" id="settings-pills">
+                        <div class="tab-pane fade" id="settings-pills">
                             <h4>Settings Tab</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>

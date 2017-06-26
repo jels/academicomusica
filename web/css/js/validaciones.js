@@ -54,7 +54,7 @@ window.addEventListener('load', function () {
                 if (responseText === "true") {
                     alert('Materia registrada correctamente');
                    // $('#tabla').html("<div class=\"panel-body\"><div class=\"alert alert-success text-center\">Usuario Correcto</div></div>");
-                    //window.location.href="menu.jsp";
+                    window.location.href="materia.jsp";
                 } else {
                     alert('Hubo un error al registrar materia');
                    // $('#tabla').html("<div class=\"panel-body\"><div class=\"alert alert-danger text-center\">Usuario Incorrecto</div></div>");
