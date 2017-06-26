@@ -9,8 +9,12 @@
         <servlet-class>Servlets.ActionServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>registrarmateria</servlet-name>
-        <servlet-class>Servlets.registrarpersona</servlet-class>
+        <servlet-name>RegistrarMateria</servlet-name>
+        <servlet-class>Servlets.RegistrarMateria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarPersona</servlet-name>
+        <servlet-class>Servlets.RegistrarPersona</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -21,11 +25,11 @@
         <url-pattern>/ActionServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>registrarmateria</servlet-name>
+        <servlet-name>RegistrarMateria</servlet-name>
         <url-pattern>/reg-mat.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>registrarpersona</servlet-name>
+        <servlet-name>RegistrarPersona</servlet-name>
         <url-pattern>/reg-persona.do</url-pattern>
     </servlet-mapping>
     <session-config>

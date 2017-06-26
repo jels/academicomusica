@@ -17,7 +17,7 @@ import Modelo.*;
  *
  * @author Jorge
  */
-public class registrarmateria extends HttpServlet {
+public class RegistrarPersona extends HttpServlet {
 
      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,10 +37,6 @@ public class registrarmateria extends HttpServlet {
         Materia mat = new Materia();
         mat.setNombreMateria(request.getParameter("nombremateria"));
         mat.setDescripcionMateria(request.getParameter("descripcionmateria"));
-        Usuario_model usm = new Usuario_model();   
-
-        mat.setNombreMateria(request.getParameter("nombremateria"));
-        mat.setDescripcionMateria(request.getParameter("descripcionmateria"));
         Materia_model matmodel = new Materia_model();
         if (matmodel.insertarMateria(mat)) {
             out.print("true");
@@ -48,4 +44,5 @@ public class registrarmateria extends HttpServlet {
             out.print("false");
         }
     }
+
 }
