@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>registrarmateria</servlet-name>
-        <servlet-class>Servlets.registrarmateria</servlet-class>
+        <servlet-class>Servlets.registrarpersona</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -23,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>registrarmateria</servlet-name>
         <url-pattern>/reg-mat.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarpersona</servlet-name>
+        <url-pattern>/reg-persona.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

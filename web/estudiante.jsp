@@ -43,6 +43,39 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane fade" id="home-pills">
+                            </br>
+                            <div class="col-md-6">
+                                <form action="reg-persona.do" id="idPersona">
+                                    <div class="form-group">
+                                        <label>Primer Nombre</label>
+                                        <input class="form-control" id = "primerNombreP">
+                                          <label>Segundo Nombre</label>
+                                        <input class="form-control" id = "segundoNombreP">
+                                        <label>Primer Apellido</label>
+                                        <input class="form-control" id = "primerApellidoP">
+                                          <label>Segundo Apellido</label>
+                                        <input class="form-control" id = "segundoApellidoP">
+                                        <label>C.I.</label>
+                                        <input class="form-control" id = "ciPersona">
+                                          <label>Dirección</label>
+                                        <input class="form-control" id = "direccionPersona">
+                                        <label>Teléfono</label>
+                                        <input class="form-control" id = "telefonoPersona">
+                                          <label>Fecha de Nacimiento</label>
+                                        <input class="form-control" id = "fechaNacimPersona">
+                                        <label>Sexo</label>
+                                        <input class="form-control" id = "sexoPersona">
+                                          <label>Correo Electrónico</label>
+                                        <input class="form-control" id = "e-mailPersona">
+                                        <label>Profesión</label>
+                                        <input class="form-control" id = "profecionPersona">
+                                        </br>
+                                        <input type="button" id="insertarpersona" value="Crear" class="btn btn-default" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="home-pills">
                             <h4>Home Tab</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
