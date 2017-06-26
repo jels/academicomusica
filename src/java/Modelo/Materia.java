@@ -10,11 +10,11 @@ package Modelo;
  * @author Luis
  */
 public class Materia {
-    
+
     private int idMateria;
     private String nombreMateria;
     private String descripcionMateria;
-    
+
     public Materia() {
     }
 
@@ -29,7 +29,7 @@ public class Materia {
     public String getDescripcionMateria() {
         return descripcionMateria;
     }
-    
+
     public void setIdMateria(int idMateria) {
         this.idMateria = idMateria;
     }
@@ -41,5 +41,5 @@ public class Materia {
     public void setDescripcionMateria(String descripcionMateria) {
         this.descripcionMateria = descripcionMateria;
     }
-    
+
 }

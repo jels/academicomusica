@@ -45,14 +45,14 @@
                         <div class="tab-pane fade" id="home-pills">
                             </br>
                             <div class="col-md-6">
-                                <form action="reg-mat.do" id="enviarDatos">
+                                <form action="reg-mat.do" id="insertarMateria">
                                     <div class="form-group">
                                         <label>Nombre Materia</label>
-                                        <input class="form-control" id = "nombrenateria">
+                                        <input class="form-control" id = "nombremateria">
                                           <label>Descripcion Materia</label>
-                                        <input class="form-control" id = "descripcionnateria">
+                                        <input class="form-control" id = "descripcionmateria">
                                         </br>
-                                        <input type="button" id="enviardatos" value="Crear" class="btn btn-default" />
+                                        <input type="button" id="insertarmateria" value="Crear" class="btn btn-default" />
                                     </div>
                                 </form>
                             </div>
