@@ -37,10 +37,8 @@ public class registrarmateria extends HttpServlet {
         Materia mat = new Materia();
         mat.setnombreMateria(request.getParameter("nombremateria"));
         mat.setdescripcionMateria(request.getParameter("descripcionmateria"));
-        Usuario_model usm = new Usuario_model();
-        if (usm.autenticacion(us)) {
-            HttpSession objsession = request.getSession(true);
-            objsession.setAttribute("usuario", us.getNombreUsuario());
+        Materia_model matmodel = new Materia_model();
+        if (matmodel.insertarMateria(mat)) {
             out.print("true");
         } else {
             out.print("false");

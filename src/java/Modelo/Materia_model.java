@@ -17,18 +17,24 @@ public class Materia_model {
     
     Conexion cn = new Conexion();
 
-    public boolean insertarMateria(Usuario us) {
+    public boolean insertarMateria(Materia mat) {
 
         PreparedStatement pst;
-        ResultSet rs;
+        int rs;
 
         try {
-            String consulta = "SELECT * FROM usuario where nombreUsuario = ? and passUsuario = ?";
+            String consulta = "INSERT INTO CURSO (idCurso, nombreCurso, detalleCurso) values(null,?,?)";
             pst = cn.getConnection().prepareStatement(consulta);
-            pst.setString(1, us.getNombreUsuario());
-            pst.setString(2, us.getPassword());
-            rs = pst.executeQuery();
-            return rs.absolute(1);
+            pst.setString(1, mat.getnombreMateria());
+            pst.setString(2, mat.getdescripcionMateria());
+            rs = pst.executeUpdate();
+            if (rs == 1) {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         } catch (Exception ex) {
             System.err.println("Error: " + ex);

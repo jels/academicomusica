@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registrarmateria</servlet-name>
-        <url-pattern>/reg-mat</url-pattern>
+        <url-pattern>/reg-mat.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

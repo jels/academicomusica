@@ -38,7 +38,7 @@ public class Materia {
         return nombreMateria;
     }
 
-    public int getdescripcionMateria() {
+    public String getdescripcionMateria() {
         return descripcionMateria;
     }
     
