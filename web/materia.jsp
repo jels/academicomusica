@@ -43,9 +43,17 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane fade" id="home-pills">
-                            <div class="form-group">
-                                <label class="col-md-4">Text Input</label>
-                                <input class="col-md-4">
+                            </br>
+                            <div class="col-md-6">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>Text Input</label>
+                                        <input class="form-control">
+                                          <label>Text Input</label>
+                                        <input class="form-control">
+                                        <p class="help-block">Example block-level help text here.</p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="profile-pills">
