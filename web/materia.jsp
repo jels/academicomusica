@@ -47,11 +47,10 @@
                             <div class="col-md-6">
                                 <form role="form">
                                     <div class="form-group">
-                                        <label>Text Input</label>
+                                        <label>Nombre Materia</label>
                                         <input class="form-control">
-                                          <label>Text Input</label>
+                                          <label>Descripcion Materia</label>
                                         <input class="form-control">
-                                        <p class="help-block">Example block-level help text here.</p>
                                     </div>
                                 </form>
                             </div>
