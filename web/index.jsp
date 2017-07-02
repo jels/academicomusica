@@ -71,15 +71,6 @@
                                 <img src="img/bannerMusica.jpg" class="responsive-img">
                             </li>
                             <li>
-                                <img src="img/DSC_0289.JPG" class="responsive-img">
-                            </li>
-                            <li>
-                                <img src="img/DSC_1501.JPG" class="responsive-img">
-                            </li>
-                            <li>
-                                <img src="img/DSC_1536.JPG" class="responsive-img">
-                            </li>
-                            <li>
                                 <img src="img/flashMobUab.jpg" class="responsive-img">
                             </li>
                         </ul>
@@ -90,17 +81,8 @@
         </div>
 
 
-
-        <br><br><br><br><br><br><br>        <br><br><br><br><br><br><br>        <br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br>
-
-
-
-
-
+<br><br><br><br>
     </body>
-
-
 
     <footer class="page-footer black grey-text text-lighten-3">
         <div class="container"  id="contactos">
