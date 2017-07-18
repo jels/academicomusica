@@ -295,7 +295,7 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-table fa-fw"></i> Listas<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Listar<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="rep_est.jsp">Estudiante</a>
@@ -307,6 +307,21 @@
                                         <a href="rep_mat.jsp">Materia</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Actualizar<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="estudiante.jsp">Estudiante</a>
+                                    </li>
+                                    <li>
+                                        <a href="docente.jsp">Docente</a>
+                                    </li>
+                                    <li>
+                                        <a href="materia.jsp">Materia</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
                             </li>
                         </ul>
                     </div>
