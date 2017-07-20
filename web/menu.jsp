@@ -5,11 +5,18 @@
 --%>
 
 <%@page import="Controlador.ControladorUsuarios"%>
+<%@page import="Controlador.ControladorRoles"%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
+    ControladorUsuarios contador = new ControladorUsuarios();
+    int cantusuarios = contador.cantidadUsuarios();
+    ControladorRoles cr=new ControladorRoles();
+    int cantroles=cr.cantidadRoles();
     if (usuario.equals("")) {
         response.sendRedirect("index.jsp");
     } else {
@@ -36,8 +43,7 @@
 
         <div id="wrapper">
 
-            <%@include file="nav.jsp" %>
-
+            <%@include file="navroot.jsp" %>%>
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -59,12 +65,12 @@
                                         <i class="fa fa-users  fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">10</div>
-                                        <div>Estudiantes</div>
+                                        <div class="huge"><% out.print(cantusuarios);%></div>
+                                        <div>Usuarios</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="rep_est.jsp">
+                            <a href="ver_user.jsp">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver Detalles</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -81,61 +87,12 @@
                                         <i class="fa fa-briefcase fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">5</div>
-                                        <div>Docentes</div>
+                                        <div class="huge"><% out.print(cantroles); %></div>
+                                        <div>Roles</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="rep_doc.jsp">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- bloque inferior (materias y cursos) -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-book fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">20</div>
-                                        <div>Materias</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="rep_mat.jsp">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-list-alt fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">25</div>
-                                        <div>Cursos</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
+                            <a href="ver_roles.jsp">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver Detalles</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

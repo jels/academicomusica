@@ -22,5 +22,11 @@ public class ControladorUsuarios {
 
         return "";
     }
-
+    
+    public int cantidadUsuarios() {
+        
+        Usuario_model cant=new Usuario_model(); 
+        System.out.println(cant.contarusuarios());
+        return cant.contarusuarios();
+    }
 }

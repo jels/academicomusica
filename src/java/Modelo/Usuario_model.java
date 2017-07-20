@@ -134,4 +134,23 @@ public class Usuario_model {
         }
     }
 
+    public int contarusuarios() {
+        PreparedStatement pst;
+        ResultSet rs;
+        try {
+            String consulta = "SELECT COUNT(nombreUsuario) FROM usuario ";
+            pst = cn.getConnection().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                return 0;
+            }
+
+        } catch (Exception ex) {
+            System.err.println("Error: " + ex);
+            return 0;
+        }
+    }
+
 }

@@ -20,6 +20,10 @@
         <servlet-name>RegistrarDocente</servlet-name>
         <servlet-class>Servlets.RegistrarDocente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Roles</servlet-name>
+        <servlet-class>Servlets.Roles</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login.do</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>RegistrarDocente</servlet-name>
         <url-pattern>/reg-doc.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Roles</servlet-name>
+        <url-pattern>/rol.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
