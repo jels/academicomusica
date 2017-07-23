@@ -16,10 +16,36 @@ public class Usuario {
     private String password;
     private int idPersona;
     private int idRol;
+    private String nombreRol;
 
     public Usuario() {
     }
+
+    public Usuario(int idUsuario, String nombreUsuario, String password, int idPersona, int idRol, String nombreRol) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.idPersona = idPersona;
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
+    }   
     
+    public Usuario(int idUsuario, String nombreUsuario, String password, int idPersona, int idRol) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.idPersona = idPersona;
+        this.idRol = idRol;
+    }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+            
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }

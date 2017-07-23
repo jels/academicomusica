@@ -8,6 +8,7 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -151,6 +152,26 @@ public class Usuario_model {
             System.err.println("Error: " + ex);
             return 0;
         }
+    }
+
+    public ArrayList<Usuario> getAllUser() {
+        ArrayList<Usuario> us = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "SELECT * FROM usuario";
+            pst = cn.getConnection().prepareCall(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                us.add(new Usuario(rs.getInt("idUsuario"), rs.getString("nombreUsuario"), rs.getString("passUsuario"), rs.getInt("idPersona"), rs.getInt("idRol")));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error getAllUser: " + e);
+        }
+
+        return us;
     }
 
 }

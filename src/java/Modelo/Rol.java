@@ -16,7 +16,15 @@ public class Rol {
     private String descripcionRol;
 
     public Rol() {
-    }  
+    }
+
+    public Rol(int idRol, String nombreRol, String descripcionRol) {
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
+        this.descripcionRol = descripcionRol;
+    }
+    
+    
     
     /**
      * @return the idRol

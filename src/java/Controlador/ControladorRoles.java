@@ -13,79 +13,66 @@ import java.util.ArrayList;
  * @author WarMachine
  */
 public class ControladorRoles {
-        
+
     public int cantidadRoles() {
-        
-        Rol_model cant=new Rol_model(); 
+
+        Rol_model cant = new Rol_model();
         System.out.println(cant.contarroles());
         return cant.contarroles();
     }
-    
-    public boolean crearRol(Rol r){
+
+    public boolean crearRol(Rol r) {
         Rol_model modelrol = new Rol_model();
         return modelrol.crear_rol(r);
     }
-    
-//    public String getViewProductos(){
-//        String htmlcode = "";        
-//        ModeloProductos modelop = new ModeloProductos(); 
-//        int i =0;
-//        for (Producto p : modelop.getAllProductos()) {
-//            if(i%3==0){
-//                htmlcode += "<div class=\"box1\">";
-//            }
-//            htmlcode += "<div class=\"col_1_of_3 span_1_of_3\"><a href='detalles.jsp?idproducto="+p.getId()+"'>\n" +
-//"				     <div class=\"view view-fifth\">\n" +
-//"				  	  <div class=\"top_box\">\n" +
-//"					  	<h3 class=\"m_1\">"+p.getNombre()+"</h3>\n" +
-//"					  	<p class=\"m_2\">"+p.getDescripcion().substring(0, 30)+"...</p>\n" +
-//"				         <div class=\"grid_img\">\n" +
-//"						   <div class=\"css3\"><img src="+p.getImg1()+" alt=\"\"/></div>\n" +
-//"					          <div class=\"mask\">\n" +
-//"	                       		<div class=\"info\">Quick View</div>\n" +
-//"			                  </div>\n" +
-//"	                    </div>\n" +
-//"                       <div class=\"price\">£"+p.getPrecio()+"</div>\n" +
-//"					   </div>\n" +
-//"					    </div>\n" +
-//"					   <span class=\"rating\">\n" +
-//"				        <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-5\" name=\"rating-input-1\">\n" +
-//"				        <label for=\"rating-input-1-5\" class=\"rating-star1\"></label>\n" +
-//"				        <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-4\" name=\"rating-input-1\">\n" +
-//"				        <label for=\"rating-input-1-4\" class=\"rating-star1\"></label>\n" +
-//"				        <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-3\" name=\"rating-input-1\">\n" +
-//"				        <label for=\"rating-input-1-3\" class=\"rating-star1\"></label>\n" +
-//"				        <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-2\" name=\"rating-input-1\">\n" +
-//"				        <label for=\"rating-input-1-2\" class=\"rating-star\"></label>\n" +
-//"				        <input type=\"radio\" class=\"rating-input\" id=\"rating-input-1-1\" name=\"rating-input-1\">\n" +
-//"				        <label for=\"rating-input-1-1\" class=\"rating-star\"></label>&nbsp;\n" +
-//"		        	  (45)\n" +
-//"		    	      </span>\n" +
-//"						 <ul class=\"list\">\n" +
-//"						  <li>\n" +
-//"						  	<img src=\"images/plus.png\" alt=\"\"/>\n" +
-//"						  	<ul class=\"icon1 sub-icon1 profile_img\">\n" +
-//"							  <li><a class=\"active-icon c1\" href=\"#\">Add To Bag </a>\n" +
-//"								<ul class=\"sub-icon1 list\">\n" +
-//"									<li><h3>sed diam nonummy</h3><a href=\"\"></a></li>\n" +
-//"									<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href=\"\">adipiscing elit, sed diam</a></p></li>\n" +
-//"								</ul>\n" +
-//"							  </li>\n" +
-//"							 </ul>\n" +
-//"						   </li>\n" +
-//"					     </ul>\n" +
-//"			    	    <div class=\"clear\"></div>\n" +
-//"			    	</a></div>";
-//            if(i+1%3==0){
-//                htmlcode += "<div class=\"clear\"></div>\n" +
-//"			  </div>";
-//            }
-//            i++;
-//        }
-//        
-//        return htmlcode;
-//    }
-//    
+
+    public String getViewRol() {
+        String htmlcode = "";
+        Rol_model modelrol = new Rol_model();
+        int i = 0;
+        htmlcode += ""
+                + "<div class=\"col-lg-12\">\n"
+                + "     <div class=\"panel panel-default\">\n"
+                + "         <div class=\"panel-heading\">\n"
+                + "         Roles\n"
+                + "         </div>\n"
+                + "         <div class=\"panel-body\">\n"
+                + "             <div class=\"table-responsive\">\n"
+                + "                 <table class=\"table table-striped\">\n"
+                + "                     <thead>\n"
+                + "                         <tr>\n"
+                + "                             <th>#</th>\n"
+                + "                             <th>Nombre Rol</th>\n"
+                + "                             <th>Descripcion Rol</th>\n"
+                + "                         </tr>\n"
+                + "                     </thead>\n"
+                + "                         <tbody>\n";
+        for (Rol r : modelrol.getAllRol()) {
+            System.out.println("holaaaa...!!!");
+            if (i % 3 == 0) {
+                htmlcode += "<div class=\"row\">";
+            }
+            htmlcode += "<tr>\n"
+                    + " <td>"+r.getIdRol()+"</td>\n"
+                    + " <td>"+r.getNombreRol()+"</td>\n"
+                    + " <td>"+r.getDescripcionRol()+"</td>\n"
+                    + "</tr>\n";
+
+            if (i + 1 % 3 == 0) {
+                htmlcode += "<div class=\"clear\"></div>\n"
+                        + "			  </div>";
+            }
+            i++;
+        }
+        htmlcode += "                   </tbody>\n"
+                + "                 </table>\n"
+                + "             </div>\n"
+                + "         <div>\n"
+                + "     </div>\n"
+                + "</div>";
+        return htmlcode;
+    }
+
 //    public String getDetallesProductos(int idProducto){
 //        String htmlcode = "";
 //        Producto pr = new ModeloProductos().getProducto(idProducto);
@@ -257,14 +244,4 @@ public class ControladorRoles {
 //        ModeloProductos mp = new ModeloProductos();
 //        return mp.update_producto(p);
 //    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
