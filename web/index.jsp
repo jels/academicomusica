@@ -4,6 +4,9 @@
     Author     : WarMachine
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%
+    session.invalidate();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,9 +47,6 @@
                                     Departamento de Formacion Musical UAB
                                 </a>
                             </li>
-                            <li>
-                                <a href="login.jsp"><i class="fa fa-sign-in grey-text text-lighten-3">Login</i></a>
-                            </li>
                         </ul>
                         <ul id="nav-mobile" class="side-nav">
                             <li><a href="login.jsp"><i class="fa fa-sign-in"></i>Login</a></li>
@@ -81,7 +81,7 @@
         </div>
 
 
-<br><br><br><br>
+        <br><br><br><br>
     </body>
 
     <footer class="page-footer black grey-text text-lighten-3">

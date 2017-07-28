@@ -218,7 +218,8 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Cambiar de Usuario</a>
+                <li id="cerrarsession"><a href="#"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
+                    <div id="closesession"></div>
                 </li>
             </ul>
             <!-- /.dropdown-user -->

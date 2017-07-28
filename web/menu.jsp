@@ -17,7 +17,7 @@
     int cantusuarios = contador.cantidadUsuarios();
     ControladorRoles cr=new ControladorRoles();
     int cantroles=cr.cantidadRoles();
-    if (usuario.equals("")) {
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
     } else {
         ControladorUsuarios con = new ControladorUsuarios();
@@ -43,12 +43,12 @@
 
         <div id="wrapper">
 
-            <%@include file="navroot.jsp" %>%>
+            <%@include file="navroot.jsp" %>
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="center">
-                            <h1 class="page-header">Bienvenido...<% out.print(usuario);%>  </h1>
+                            <h1 class="page-header">Bienvenido...<% out.print(usuario); %>  </h1>
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->

@@ -31,10 +31,12 @@ public class Login extends HttpServlet {
     }
 
     //protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Si lo queremos hacer a traves de un get, tenemos que poner el codigo del post en esta clase        
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html; charset=iso-8859-1");

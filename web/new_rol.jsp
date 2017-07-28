@@ -8,7 +8,7 @@
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (usuario.equals("")) {
+    if (objsession.equals(false)) {
         response.sendRedirect("index.jsp");
     } else {
         ControladorUsuarios con = new ControladorUsuarios();
@@ -33,7 +33,7 @@
 
         <div id="wrapper">
 
-            <%@include file="navroot.jsp" %>%>
+            <%@include file="navroot.jsp" %>
 
             <div id="page-wrapper">
 

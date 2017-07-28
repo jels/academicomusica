@@ -38,6 +38,16 @@ public class Rol_model {
     }
 
     public boolean crear_rol(Rol r) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return false;
 
     }

@@ -30,21 +30,67 @@
 <!DOCTYPE html>
 <html>
 
-    <%@include file="head.jsp" %>
-
+    <%@include file="head.jsp"  %>
     <body>
 
         <div id="wrapper">
-            <%@include file="navroot.jsp" %>%>
+
+            <%@include file="navroot.jsp" %>
+
             <div id="page-wrapper">
 
+                <div class="panel-heading">
+                    <h1>Gestionar Los Roles</h1>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class=""><a href="#crear" data-toggle="tab" aria-expanded="false">Crear</a>
+                        </li>
+                        <li class=""><a href="#actualizarrol" data-toggle="tab" aria-expanded="false">Actualizar</a>
+                        </li>
+                        <li class=""><a href="#darbajarol" data-toggle="tab" aria-expanded="false">Dar de Baja</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade" id="crear">
+                            </br>
+                            <div class="col-md-6">
+                                <form action="rol.do" id="insertarMateria">
+                                    <div class="form-group">
+                                        <label>Nombre Rol</label>
+                                        <input class="form-control" id = "nombrerol">
+                                        <label>Descripcion Rol</label>
+                                        <input class="form-control" id = "descripcionrol">
+                                        </br>
+                                        <input type="button" id="insertarrol" value="Crear" class="btn btn-default" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="actualizarrol">
+                            <h4>Roles</h4>
+                            <div id="actroles">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="darbajarol">
+                            <h4>Roles</h4>
+                            <div id="actroles">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
             </div>
-
         </div>
-        <!-- /#wrapper -->
-
     </body>
 
     <%@include file="foother.jsp" %>
-
+    
 </html>
+

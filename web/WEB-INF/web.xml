@@ -24,6 +24,14 @@
         <servlet-name>Roles</servlet-name>
         <servlet-class>Servlets.Roles</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistroRol</servlet-name>
+        <servlet-class>Servlets.RegistroRol</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistroUser</servlet-name>
+        <servlet-class>Servlets.RegistroUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login.do</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>Roles</servlet-name>
         <url-pattern>/rol.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroRol</servlet-name>
+        <url-pattern>/regrol.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroUser</servlet-name>
+        <url-pattern>/reguser.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
