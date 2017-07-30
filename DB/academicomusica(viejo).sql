@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2017 a las 06:49:20
+-- Tiempo de generación: 25-06-2017 a las 22:33:21
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -32,15 +32,6 @@ CREATE TABLE `cargo` (
   `detalleCargo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `cargo`
---
-
-INSERT INTO `cargo` (`idCargo`, `nombreCargo`, `detalleCargo`) VALUES(1, 'Padre', 'Son los padres de los estudiantes');
-INSERT INTO `cargo` (`idCargo`, `nombreCargo`, `detalleCargo`) VALUES(2, 'Estudiante', 'Son los estudiantes');
-INSERT INTO `cargo` (`idCargo`, `nombreCargo`, `detalleCargo`) VALUES(3, 'Docente', 'Son los docentes de el instituto');
-INSERT INTO `cargo` (`idCargo`, `nombreCargo`, `detalleCargo`) VALUES(4, 'Administrativos', 'Son los que estan a cargo del instituto, sea el Director o la Secretaria');
-
 -- --------------------------------------------------------
 
 --
@@ -65,14 +56,6 @@ CREATE TABLE `curso` (
   `nombreCurso` varchar(50) NOT NULL,
   `detalleCurso` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `curso`
---
-
-INSERT INTO `curso` (`idCurso`, `nombreCurso`, `detalleCurso`) VALUES(1, 'Piano', 'Curso de piano');
-INSERT INTO `curso` (`idCurso`, `nombreCurso`, `detalleCurso`) VALUES(2, 'Violin', 'Curso de Violin');
-INSERT INTO `curso` (`idCurso`, `nombreCurso`, `detalleCurso`) VALUES(3, 'Coro', 'Curso de Coro');
 
 -- --------------------------------------------------------
 
@@ -135,8 +118,7 @@ CREATE TABLE `estudiante` (
   `estudioMusica` int(11) NOT NULL,
   `disponeInstrumentos` int(11) NOT NULL,
   `idTipoEstudiante` int(11) NOT NULL,
-  `idPadre` int(11) NOT NULL,
-  `idPersona` int(11) NOT NULL
+  `idPadre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -164,7 +146,8 @@ CREATE TABLE `horarios` (
   `horaEntrada` time NOT NULL,
   `horaSalida` time NOT NULL,
   `idCurso` int(11) NOT NULL,
-  `idMateria` int(11) NOT NULL
+  `nombreMateria` varchar(50) NOT NULL,
+  `descripcionMateria` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -178,18 +161,6 @@ CREATE TABLE `informehoras` (
   `totalHoras` float(8,2) NOT NULL,
   `detalleInforme` text NOT NULL,
   `idPersona` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia`
---
-
-CREATE TABLE `materia` (
-  `idMateria` int(11) NOT NULL,
-  `nombreMateria` varchar(100) NOT NULL,
-  `descripcionMateria` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -216,6 +187,7 @@ CREATE TABLE `mensualidad` (
   `idMensualidad` int(11) NOT NULL,
   `idMatricula` int(11) NOT NULL,
   `descripcionMensualidad` varchar(100) NOT NULL,
+  `numeroFactura` int(20) NOT NULL,
   `totalPago` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -272,8 +244,7 @@ CREATE TABLE `pagos` (
   `idPagos` int(11) NOT NULL,
   `idMensualidad` int(11) NOT NULL,
   `monto` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `numeroFactura` int(11) NOT NULL
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -302,9 +273,10 @@ CREATE TABLE `persona` (
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`idPersona`, `primerNombreP`, `segundoNombreP`, `primerApellidoP`, `segundoApellidoP`, `ciPersona`, `direccionPersona`, `telefonoPersona`, `fechaNacimPersona`, `sexoPersona`, `e-mailPersona`, `profecionPersona`, `idCargo`) VALUES(1, 'Elias', 'Jonathan', 'Leonardi', 'Sauer', '3968935 - Py', 'Vinto - Simon y Patiño km1', '69546746', '1991-09-09', 'Masculino', 'jels1991@gmail.com', 'Ing de Sistemas', 1);
-INSERT INTO `persona` (`idPersona`, `primerNombreP`, `segundoNombreP`, `primerApellidoP`, `segundoApellidoP`, `ciPersona`, `direccionPersona`, `telefonoPersona`, `fechaNacimPersona`, `sexoPersona`, `e-mailPersona`, `profecionPersona`, `idCargo`) VALUES(2, 'Luis', 'Fernando', 'Montaño', 'Parraga', '9812712', 'CBBA', '7655783', '0000-00-00', 'Masculino', 'luis@gmail.com', 'Estudiante', 2);
-INSERT INTO `persona` (`idPersona`, `primerNombreP`, `segundoNombreP`, `primerApellidoP`, `segundoApellidoP`, `ciPersona`, `direccionPersona`, `telefonoPersona`, `fechaNacimPersona`, `sexoPersona`, `e-mailPersona`, `profecionPersona`, `idCargo`) VALUES(3, 'Pablo', 'Mario', 'Montaño', 'Parraga', '983442312', 'Quillacollo', '7656483', '0000-00-00', 'Masculino', 'mario@gmail.com', 'Musico', 3);
+INSERT INTO `persona` (`idPersona`, `primerNombreP`, `segundoNombreP`, `primerApellidoP`, `segundoApellidoP`, `ciPersona`, `direccionPersona`, `telefonoPersona`, `fechaNacimPersona`, `sexoPersona`, `e-mailPersona`, `profecionPersona`, `idCargo`) VALUES
+(1, 'Elias', 'Jonathan', 'Leonardi', 'Sauer', '3968935 - Py', 'Vinto - Simon y Patiño km1', '69546746', '1991-09-09', 'Masculino', 'jels1991@gmail.com', 'Ing de Sistemas', 0),
+(2, 'Luis', 'Fernando', 'Montaño', 'Parraga', '9812712', 'CBBA', '7655783', '0000-00-00', 'Masculino', 'luis@gmail.com', 'Estudiante', 0),
+(3, 'Pablo', 'Mario', 'Montaño', 'Parraga', '983442312', 'Quillacollo', '7656483', '0000-00-00', 'Masculino', 'mario@gmail.com', 'Musico', 0);
 
 -- --------------------------------------------------------
 
@@ -322,10 +294,11 @@ CREATE TABLE `roles` (
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`idRol`, `nombreRol`, `descripcionRol`) VALUES(1, 'SuperAdministrador', 'Es el Super administrador del sistema');
-INSERT INTO `roles` (`idRol`, `nombreRol`, `descripcionRol`) VALUES(2, 'Director', 'Es el director del Departamento de Formacion Musical');
-INSERT INTO `roles` (`idRol`, `nombreRol`, `descripcionRol`) VALUES(3, 'Docente', 'Docentes de cada curso impartido por el Departamento de Formacion Musical');
-INSERT INTO `roles` (`idRol`, `nombreRol`, `descripcionRol`) VALUES(4, 'Estudiante', 'Son todos los estudiantes que estan matriculados en los diferentes cursos del Depto de Musica');
+INSERT INTO `roles` (`idRol`, `nombreRol`, `descripcionRol`) VALUES
+(1, 'SuperAdministrador', 'Es el Super administrador del sistema'),
+(2, 'Director', 'Es el director del Departamento de Formacion Musical'),
+(3, 'Docente', 'Docentes de cada curso impartido por el Departamento de Formacion Musical'),
+(4, 'Estudiante', 'Son todos los estudiantes que estan matriculados en los diferentes cursos del Depto de Musica');
 
 -- --------------------------------------------------------
 
@@ -369,9 +342,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `passUsuario`, `idPersona`, `idRol`) VALUES(1, 'root', 'elias', 1, 1);
-INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `passUsuario`, `idPersona`, `idRol`) VALUES(2, 'luis', '1234', 2, 4);
-INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `passUsuario`, `idPersona`, `idRol`) VALUES(3, 'mario', '4321', 3, 3);
+INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `passUsuario`, `idPersona`, `idRol`) VALUES
+(1, 'root', 'elias', 1, 1),
+(2, 'luis', '1234', 2, 4),
+(3, 'mario', '4321', 3, 3);
 
 --
 -- Índices para tablas volcadas
@@ -387,8 +361,7 @@ ALTER TABLE `cargo`
 -- Indices de la tabla `ciclos`
 --
 ALTER TABLE `ciclos`
-  ADD PRIMARY KEY (`idCiclos`),
-  ADD KEY `idCurso` (`idCurso`);
+  ADD PRIMARY KEY (`idCiclos`);
 
 --
 -- Indices de la tabla `curso`
@@ -400,117 +373,85 @@ ALTER TABLE `curso`
 -- Indices de la tabla `cursoxdocente`
 --
 ALTER TABLE `cursoxdocente`
-  ADD PRIMARY KEY (`idCursoxDocente`),
-  ADD KEY `idDocente` (`idDocente`),
-  ADD KEY `idCurso` (`idCurso`);
+  ADD PRIMARY KEY (`idCursoxDocente`);
 
 --
 -- Indices de la tabla `detallenotas`
 --
 ALTER TABLE `detallenotas`
-  ADD PRIMARY KEY (`idDetalleNotas`),
-  ADD KEY `idNota` (`idNota`);
+  ADD PRIMARY KEY (`idDetalleNotas`);
 
 --
 -- Indices de la tabla `detalleturno`
 --
 ALTER TABLE `detalleturno`
-  ADD PRIMARY KEY (`idDetalleTurno`),
-  ADD KEY `idTurno` (`idTurno`);
+  ADD PRIMARY KEY (`idDetalleTurno`);
 
 --
 -- Indices de la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD PRIMARY KEY (`idDocente`),
-  ADD KEY `idPersona` (`idPersona`);
+  ADD PRIMARY KEY (`idDocente`);
 
 --
 -- Indices de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  ADD PRIMARY KEY (`idEstudiante`),
-  ADD KEY `idTipoEstudiante` (`idTipoEstudiante`),
-  ADD KEY `idPadre` (`idPadre`),
-  ADD KEY `idPersona` (`idPersona`);
+  ADD PRIMARY KEY (`idEstudiante`);
 
 --
 -- Indices de la tabla `estudios`
 --
 ALTER TABLE `estudios`
-  ADD PRIMARY KEY (`idEstudio`),
-  ADD KEY `idEstudiante` (`idEstudiante`);
+  ADD PRIMARY KEY (`idEstudio`);
 
 --
 -- Indices de la tabla `horarios`
 --
 ALTER TABLE `horarios`
-  ADD PRIMARY KEY (`idHorarios`),
-  ADD KEY `idCurso` (`idCurso`),
-  ADD KEY `idMateria` (`idMateria`);
+  ADD PRIMARY KEY (`idHorarios`);
 
 --
 -- Indices de la tabla `informehoras`
 --
 ALTER TABLE `informehoras`
-  ADD PRIMARY KEY (`idInformeHoras`),
-  ADD KEY `idPersona` (`idPersona`);
-
---
--- Indices de la tabla `materia`
---
-ALTER TABLE `materia`
-  ADD PRIMARY KEY (`idMateria`);
+  ADD PRIMARY KEY (`idInformeHoras`);
 
 --
 -- Indices de la tabla `matricula`
 --
 ALTER TABLE `matricula`
-  ADD PRIMARY KEY (`idMatricula`),
-  ADD KEY `idEstudiante` (`idEstudiante`),
-  ADD KEY `idCurso` (`idCurso`);
-
---
--- Indices de la tabla `mensualidad`
---
-ALTER TABLE `mensualidad`
-  ADD PRIMARY KEY (`idMensualidad`),
-  ADD KEY `idMatricula` (`idMatricula`);
+  ADD PRIMARY KEY (`idMatricula`);
 
 --
 -- Indices de la tabla `nivel`
 --
 ALTER TABLE `nivel`
-  ADD PRIMARY KEY (`idNivel`),
-  ADD KEY `idCiclos` (`idCiclos`);
+  ADD PRIMARY KEY (`idNivel`);
 
 --
 -- Indices de la tabla `nota`
 --
 ALTER TABLE `nota`
-  ADD PRIMARY KEY (`idNota`),
-  ADD KEY `nota_ibfk_1` (`idMateria`);
+  ADD PRIMARY KEY (`idNota`);
 
 --
 -- Indices de la tabla `padres`
 --
 ALTER TABLE `padres`
-  ADD PRIMARY KEY (`idPadre`),
-  ADD KEY `idEstudiante` (`idEstudiante`);
+  ADD PRIMARY KEY (`idPadre`);
 
 --
 -- Indices de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD PRIMARY KEY (`idPagos`),
-  ADD KEY `idMensualidad` (`idMensualidad`);
+  ADD PRIMARY KEY (`idPagos`);
 
 --
 -- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD PRIMARY KEY (`idPersona`),
-  ADD KEY `idCargo` (`idCargo`);
+  ADD PRIMARY KEY (`idPersona`);
 
 --
 -- Indices de la tabla `roles`
@@ -546,7 +487,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ciclos`
 --
@@ -556,7 +497,7 @@ ALTER TABLE `ciclos`
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cursoxdocente`
 --
@@ -598,20 +539,10 @@ ALTER TABLE `horarios`
 ALTER TABLE `informehoras`
   MODIFY `idInformeHoras` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `materia`
---
-ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `matricula`
 --
 ALTER TABLE `matricula`
   MODIFY `idMatricula` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `mensualidad`
---
-ALTER TABLE `mensualidad`
-  MODIFY `idMensualidad` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `nivel`
 --
@@ -660,107 +591,6 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `ciclos`
---
-ALTER TABLE `ciclos`
-  ADD CONSTRAINT `ciclos_ibfk_1` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `cursoxdocente`
---
-ALTER TABLE `cursoxdocente`
-  ADD CONSTRAINT `cursoxdocente_ibfk_1` FOREIGN KEY (`idDocente`) REFERENCES `docente` (`idDocente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursoxdocente_ibfk_2` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `detallenotas`
---
-ALTER TABLE `detallenotas`
-  ADD CONSTRAINT `detallenotas_ibfk_1` FOREIGN KEY (`idNota`) REFERENCES `nota` (`idNota`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `detalleturno`
---
-ALTER TABLE `detalleturno`
-  ADD CONSTRAINT `detalleturno_ibfk_1` FOREIGN KEY (`idTurno`) REFERENCES `turno` (`idTurno`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `docente`
---
-ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `docente` (`idDocente`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `estudiante`
---
-ALTER TABLE `estudiante`
-  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idTipoEstudiante`) REFERENCES `tipoestudiante` (`idTipoEstudiante`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `estudiante_ibfk_2` FOREIGN KEY (`idPadre`) REFERENCES `padres` (`idPadre`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `estudiante_ibfk_3` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `estudios`
---
-ALTER TABLE `estudios`
-  ADD CONSTRAINT `estudios_ibfk_1` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `horarios`
---
-ALTER TABLE `horarios`
-  ADD CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horarios_ibfk_2` FOREIGN KEY (`idMateria`) REFERENCES `materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `informehoras`
---
-ALTER TABLE `informehoras`
-  ADD CONSTRAINT `informehoras_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `matricula`
---
-ALTER TABLE `matricula`
-  ADD CONSTRAINT `matricula_ibfk_1` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `mensualidad`
---
-ALTER TABLE `mensualidad`
-  ADD CONSTRAINT `mensualidad_ibfk_1` FOREIGN KEY (`idMatricula`) REFERENCES `matricula` (`idMatricula`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `nivel`
---
-ALTER TABLE `nivel`
-  ADD CONSTRAINT `nivel_ibfk_1` FOREIGN KEY (`idCiclos`) REFERENCES `ciclos` (`idCiclos`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `nota`
---
-ALTER TABLE `nota`
-  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`idMateria`) REFERENCES `materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `padres`
---
-ALTER TABLE `padres`
-  ADD CONSTRAINT `padres_ibfk_1` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `pagos`
---
-ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`idMensualidad`) REFERENCES `mensualidad` (`idMensualidad`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `persona`
---
-ALTER TABLE `persona`
-  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idCargo`) REFERENCES `cargo` (`idCargo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`

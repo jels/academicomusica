@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Controlador.ControladorUsuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -44,8 +45,8 @@ public class Login extends HttpServlet {
         Usuario us = new Usuario();
         us.setNombreUsuario(request.getParameter("username"));
         us.setPassword(request.getParameter("password"));
-        Usuario_model usm = new Usuario_model();
-        if (usm.autenticacion(us)) {
+        ControladorUsuarios cuser = new ControladorUsuarios();
+        if (cuser.loginUser(us)) {
             HttpSession objsession = request.getSession(true);
             objsession.setAttribute("usuario", us.getNombreUsuario());
             out.print("true");

@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="Controlador.ControladorUsuarios"%>
-<%
+<%--
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
     if (usuario.equals("")) {
@@ -23,7 +23,7 @@
             response.sendRedirect("index.jsp");
         }
     }
-%>
+--%>
 
 <!DOCTYPE html>
 <html>

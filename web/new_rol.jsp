@@ -57,22 +57,25 @@
                         <div class="tab-pane fade" id="crear">
                             </br>
                             <div class="col-md-6">
-                                <form action="rol.do" id="insertarMateria">
+                                <form action="" id="newRol">
                                     <div class="form-group">
                                         <label>Nombre Rol</label>
-                                        <input class="form-control" id = "nombrerol">
+                                        <input class="form-control" id = "nombreRol">
                                         <label>Descripcion Rol</label>
-                                        <input class="form-control" id = "descripcionrol">
+                                        <input class="form-control" id = "descripcionRol">
                                         </br>
                                         <input type="button" id="insertarrol" value="Crear" class="btn btn-default" />
                                     </div>
                                 </form>
+                                <div id="notificacionrol">
+                                    
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="actualizarrol">
                             <h4>Roles</h4>
                             <div id="actroles">
-
+                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="darbajarol">

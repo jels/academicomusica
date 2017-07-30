@@ -1,6 +1,6 @@
 <%-- 
     Document   : menu
-    Created on : 21/06/2017, 11:26:31 PM
+    Created on : 01/06/2017, 04:22:26 PM
     Author     : WarMachine
 --%>
 
@@ -19,15 +19,15 @@
         response.sendRedirect("index.jsp");
     } else {
         ControladorUsuarios con = new ControladorUsuarios();
-        if ("SuperAdministrador".equals(con.rol(usuario))) {
+        if ("Secretaria".equals(con.rol(usuario))) {
         } else if ("Director".equals(con.rol(usuario))) {
             response.sendRedirect("menu_director.jsp");
         } else if ("Docente".equals(con.rol(usuario))) {
             response.sendRedirect("menu_docente.jsp");
         } else if ("Estudiante".equals(con.rol(usuario))) {
             response.sendRedirect("menu_estudiante.jsp");
-        } else if ("Secretaria".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_secretaria.jsp");
+        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
+            response.sendRedirect("menu.jsp");
         } else {
             response.sendRedirect("index.jsp");
         }
@@ -43,7 +43,7 @@
 
         <div id="wrapper">
 
-            <%@include file="navroot.jsp" %>
+            <%@include file="navsecre.jsp" %>
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><% out.print(cantusuarios);%></div>
-                                        <div>Usuarios</div>
+                                        <div>Estudiantes</div>
                                     </div>
                                 </div>
                             </div>
@@ -87,8 +87,8 @@
                                         <i class="fa fa-briefcase fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">4</div>
-                                        <div>Roles</div>
+                                        <div class="huge"><%  %> 6</div>
+                                        <div>Materias</div>
                                     </div>
                                 </div>
                             </div>

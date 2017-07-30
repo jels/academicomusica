@@ -252,22 +252,22 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gestionar<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="new_rol.jsp">Rol</a>
-                        </li>
-                        <li>
-                            <a href="new_user.jsp">Usuario</a>
+                            <a href="new_estudiante.jsp">Matricula</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i> Listar<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> Ver<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="ver_roles.jsp">Roles</a>
+                            <a href="#">Estudiantes</a>
                         </li>
                         <li>
-                            <a href="ver_user.jsp">Usuarios</a>
+                            <a href="#">Docentes</a>
+                        </li>
+                        <li>
+                            <a href="#">Materias</a>
                         </li>
                     </ul>
                 </li>

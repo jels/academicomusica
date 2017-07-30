@@ -18,7 +18,7 @@ public class Usuario_model {
 
     Conexion cn = new Conexion();
 
-    public boolean autenticacion(Usuario us) {
+    public ResultSet autenticacion(Usuario us) {
 
         PreparedStatement pst;
         ResultSet rs;
@@ -29,23 +29,18 @@ public class Usuario_model {
             pst.setString(1, us.getNombreUsuario());
             pst.setString(2, us.getPassword());
             rs = pst.executeQuery();
-            return rs.absolute(1);
+            if (rs.absolute(1)) {
+                return rs;
+            } else {
+                return null;
+            }
 
         } catch (Exception ex) {
             System.err.println("Error: " + ex);
-            return false;
+            return null;
         }
     }
 
-//    public static void main(String[] args) {
-//
-//        Usuario_model usm = new Usuario_model();
-//        Usuario user = new Usuario();
-//        boolean ex = usm.autenticacion(user);
-//        boolean ne;
-//        System.out.println("Existe?: " + ex);
-//        
-//    }
     public String rolusuario(Usuario us) {
 
         PreparedStatement pst;
@@ -172,6 +167,50 @@ public class Usuario_model {
         }
 
         return us;
+    }
+
+    public boolean newUser(Usuario us) {
+        System.out.println("nombre: " + us.getNombreUsuario());
+        System.out.println("pass: " + us.getPassword());
+        System.out.println("idPersona: " + us.getIdPersona());
+        System.out.println("idRol: " + us.getIdRol());
+        PreparedStatement pst;
+
+        try {
+            if (!existe(us)) {
+                String consulta = "INSERT INTO usuario(nombreUsuario, passUsuario, idPersona, idRol) VALUES (?,?,?,?)";
+                pst = cn.getConnection().prepareStatement(consulta);
+                pst.setString(1, us.getNombreUsuario());
+                pst.setString(2, us.getPassword());
+                pst.setInt(3, us.getIdPersona());
+                pst.setInt(4, us.getIdRol());
+                return pst.executeUpdate() == 1;
+            } else {
+                return false;
+            }
+
+        } catch (Exception ex) {
+            System.err.println("Error User: " + ex);
+            return false;
+        }
+
+    }
+
+    private boolean existe(Usuario us) {
+
+        PreparedStatement pst;
+        ResultSet rs;
+
+        try {
+            String consulta = "SELECT * FROM usuario where nombreUsuario = ?";
+            pst = cn.getConnection().prepareStatement(consulta);
+            pst.setString(1, us.getNombreUsuario());
+            rs = pst.executeQuery();
+            return rs.absolute(1);
+        } catch (Exception ex) {
+            System.err.println("Error: " + ex);
+            return false;
+        }
     }
 
 }

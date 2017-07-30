@@ -1,8 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 window.addEventListener('load', function () {
     //alert("Cargado");
@@ -76,35 +72,64 @@ window.addEventListener('load', function () {
 });
 
 window.addEventListener('load', function () {
-    document.getElementById('newrol').addEventListener('click', function () {
-        //alert('click...');
-//        var nombremateria = document.getElementById('nombremateria').value;
-//        var descripcionmateria = document.getElementById('descripcionmateria').value;
-//        var bandera = false;
-//        if (nombremateria.length > 0 && descripcionmateria.length > 0) {
-//            bandera = true;
-//        }
-//        if (bandera) {
-////            alert('Campos llenos...');
-//            $.post('regrol.do', {
-//                nombremateria: nombremateria,
-//                descripcionmateria: descripcionmateria
-//            }, function (responseText) {
-//                if (responseText === "true") {
-//                    alert('Materia registrada correctamente');
-//                   // $('#tabla').html("<div class=\"panel-body\"><div class=\"alert alert-success text-center\">Usuario Correcto</div></div>");
-//                    window.location.href="materia.jsp";
-//                } else {
-//                    alert('Hubo un error al registrar materia');
-//                   // $('#tabla').html("<div class=\"panel-body\"><div class=\"alert alert-danger text-center\">Usuario Incorrecto</div></div>");
-//                }
-//            });
-////            document.getElementById('formInicio').submit();
-//        } else {
-//            alert('Rellene todos los campos...');
-//        }
+    document.getElementById('insertarrol').addEventListener('click', function () {
+        var nombreRol = document.getElementById('nombreRol').value;
+        var descripcionRol = document.getElementById('descripcionRol').value;
+        var bandera = false;
+        if (nombreRol.length > 0 && descripcionRol.length > 0) {
+            bandera = true;
+        }
+        if (bandera) {
+            $.post('regrol.do', {
+                nombreRol: nombreRol,
+                descripcionRol: descripcionRol
+            }, function (responseText) {
+                if (responseText === "true") {
+                    $('#notificacionrol').html("<div class=\"panel-body\"><div class=\"alert alert-success text-center\">Rol Creado Correctamente</div></div>");
+                    window.location.href = "new_rol.jsp";
+                } else {
+                    $('#notificacionrol').html("<div class=\"panel-body\"><div class=\"alert alert-danger text-center\">Error Al Crear el Rol</div></div>");
+                }
+            });
+        } else {
+            alert('Rellene todos los campos...');
+        }
     });
 });
+
+window.addEventListener('load', function () {
+    document.getElementById('insertarUser').addEventListener('click', function () {
+        var nombreUsuario = document.getElementById('nombreUsuario').value;
+        var passUsuario = document.getElementById('passUsuario').value;
+        var idRol = document.getElementById('idRol').value;
+        var bandera = false;
+        if (nombreUsuario.length > 0 && passUsuario.length > 0 && idRol.length > 0) {
+            bandera = true;
+        }
+        
+        if (bandera) {
+            $.post('reguser.do', {
+                nombreUsuario: nombreUsuario,
+                passUsuario: passUsuario,
+                idRol: idRol
+            }, function (responseText) {
+                if (responseText === "true") {
+                    $('#notificacion').html("<div class=\"panel-body\"><div class=\"alert alert-success text-center\">Usuario Creado Correctamente</div></div>");
+                    window.location.href = "new_user.jsp";
+                } else {
+                    $('#notificacion').html("<div class=\"panel-body\"><div class=\"alert alert-danger text-center\">Usuario Existente</div></div>");
+                }
+            });
+        } else {
+            alert('Rellene todos los campos...');
+        }
+    });
+});
+
+
+
+
+
 
 //$(document).ready(function () {
 //    $('#enviarDatos').click(function (event) {

@@ -48,21 +48,16 @@ public class ControladorRoles {
                 + "                     </thead>\n"
                 + "                         <tbody>\n";
         for (Rol r : modelrol.getAllRol()) {
-            System.out.println("holaaaa...!!!");
-            if (i % 3 == 0) {
-                htmlcode += "<div class=\"row\">";
-            }
-            htmlcode += "<tr>\n"
-                    + " <td>"+r.getIdRol()+"</td>\n"
-                    + " <td>"+r.getNombreRol()+"</td>\n"
-                    + " <td>"+r.getDescripcionRol()+"</td>\n"
-                    + "</tr>\n";
+            
+            htmlcode += "<div class=\"row\">"
+                    + "<tr>\n"
+                    + " <td>" + r.getIdRol() + "</td>\n"
+                    + " <td>" + r.getNombreRol() + "</td>\n"
+                    + " <td>" + r.getDescripcionRol() + "</td>\n"
+                    + "</tr>\n"
+                    + "<div class=\"clear\"></div>\n"
+                    + "			  </div>";
 
-            if (i + 1 % 3 == 0) {
-                htmlcode += "<div class=\"clear\"></div>\n"
-                        + "			  </div>";
-            }
-            i++;
         }
         htmlcode += "                   </tbody>\n"
                 + "                 </table>\n"
@@ -70,6 +65,21 @@ public class ControladorRoles {
                 + "         <div>\n"
                 + "     </div>\n"
                 + "</div>";
+        return htmlcode;
+    }
+
+    public String seleccionadorRoles() {
+        String htmlcode = "";
+        Rol_model modelrol = new Rol_model();
+        int i = 1;
+        htmlcode += " <label> Roles </label>"
+                + "<select class=\"form-control\" id=\"idRol\">";
+        for (Rol r : modelrol.getAllRol()) {
+            htmlcode += "<option value="+i+">" + r.getNombreRol() + "</option>";
+            System.out.println("holaaaa en rol...!!!");
+            i++;
+        }
+        htmlcode += "</select>";
         return htmlcode;
     }
 

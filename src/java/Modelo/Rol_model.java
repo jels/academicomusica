@@ -38,37 +38,38 @@ public class Rol_model {
     }
 
     public boolean crear_rol(Rol r) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        return false;
 
+        PreparedStatement pst;
+
+        try {
+            String consulta = "INSERT INTO roles (idRol, nombreRol, descripcionRol) values(null,?,?)";
+            pst = cn.getConnection().prepareStatement(consulta);
+            pst.setString(1, r.getNombreRol());
+            pst.setString(2, r.getDescripcionRol());
+            return pst.executeUpdate() == 1;
+        } catch (Exception ex) {
+            System.err.println("Error Rol: " + ex);
+            return false;
+        }
     }
 
-    public ArrayList<Rol> getAllRol(){
+    public ArrayList<Rol> getAllRol() {
         ArrayList<Rol> rol = new ArrayList<>();
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        
+        PreparedStatement pst;
+        ResultSet rs;
+
         try {
             String sql = "SELECT * FROM roles ";
             pst = cn.getConnection().prepareCall(sql);
             rs = pst.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 rol.add(new Rol(rs.getInt("idRol"), rs.getString("nombreRol"), rs.getString("descripcionRol")));
             }
-            
+
         } catch (Exception e) {
-            System.out.println("Error getAllRol: "+e);            
-        }       
-        
+            System.out.println("Error getAllRol: " + e);
+        }
+
         return rol;
     }
 

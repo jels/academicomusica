@@ -7,6 +7,8 @@ package Controlador;
 
 import Modelo.Usuario;
 import Modelo.Usuario_model;
+import java.security.MessageDigest;
+import java.sql.ResultSet;
 
 /**
  *
@@ -15,7 +17,7 @@ import Modelo.Usuario_model;
 public class ControladorUsuarios {
 
     public String rol(String user) {
-        Usuario_model usm=new Usuario_model();
+        Usuario_model usm = new Usuario_model();
         return usm.rol(user);
     }
 
@@ -23,15 +25,30 @@ public class ControladorUsuarios {
 
         return "";
     }
-    
+
     public int cantidadUsuarios() {
-        
-        Usuario_model cant=new Usuario_model(); 
+
+        Usuario_model cant = new Usuario_model();
         System.out.println(cant.contarusuarios());
         return cant.contarusuarios();
     }
-    
-    
+
+    public boolean crearUsuario(Usuario us) {
+        Usuario_model modeluser = new Usuario_model();
+        return modeluser.newUser(us);
+    }
+
+    public boolean loginUser(Usuario us) {
+        Usuario_model usm = new Usuario_model();
+        ResultSet rs;
+        rs = usm.autenticacion(us);
+        if (rs != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public String getViewUsers() {
         String htmlcode = "";
         Usuario_model modeluser = new Usuario_model();
@@ -55,20 +72,15 @@ public class ControladorUsuarios {
                 + "                         <tbody>\n";
         for (Usuario u : modeluser.getAllUser()) {
             System.out.println("holaaaa...!!!");
-            if (i % 3 == 0) {
-                htmlcode += "<div class=\"row\">";
-            }
-            htmlcode += "<tr>\n"
-                    + " <td>"+u.getIdUsuario()+"</td>\n"
-                    + " <td>"+u.getNombreUsuario()+"</td>\n"
+            htmlcode += "<div class=\"row\">"
+                    + "<tr>\n"
+                    + " <td>" + u.getIdUsuario() + "</td>\n"
+                    + " <td>" + u.getNombreUsuario() + "</td>\n"
                     + " <td> ***** </td>\n"
-                    + "</tr>\n";
+                    + "</tr>\n"
+                    + "<div class=\"clear\"></div>\n"
+                    + "			  </div>";
 
-            if (i + 1 % 3 == 0) {
-                htmlcode += "<div class=\"clear\"></div>\n"
-                        + "			  </div>";
-            }
-            i++;
         }
         htmlcode += "                   </tbody>\n"
                 + "                 </table>\n"
@@ -78,4 +90,23 @@ public class ControladorUsuarios {
                 + "</div>";
         return htmlcode;
     }
+
+//    private static String md5(String clear) throws Exception {
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        byte[] b = md.digest(clear.getBytes());
+//
+//        int size = b.length;
+//        StringBuffer h = new StringBuffer(size);
+//        for (int i = 0; i < size; i++) {
+//            int u = b[i] & 255;
+//            if (u < 16) {
+//                h.append("0" + Integer.toHexString(u));
+//            } else {
+//                h.append(Integer.toHexString(u));
+//            }
+//        }
+//        return h.toString();
+//    }
+
+//    
 }
