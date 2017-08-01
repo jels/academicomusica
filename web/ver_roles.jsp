@@ -5,42 +5,31 @@
 --%>
 
 <%@page import="Controlador.ControladorRoles"%>
-<%@page import="Modelo.Rol_model"%>
-<%@page import="Controlador.ControladorUsuarios"%>
+<%@page import="Controlador.ControladorNav"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (usuario.equals("")) {
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
-    } else {
-        ControladorUsuarios con = new ControladorUsuarios();
-        if ("SuperAdministrador".equals(con.rol(usuario))) {
-        } else if ("Director".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_director.jsp");
-        } else if ("Docente".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_docente.jsp");
-        } else if ("Estudiante".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_estudiante.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+    } else if (usuario == null) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
 %>
 
 <!DOCTYPE html>
 <html>
 
-    
+
     <%@include file="head.jsp" %>
 
-    
-    
     <body>
 
         <div id="wrapper">
-            <%@include file="navroot.jsp" %>%>
+            <% ControladorNav cnv = new ControladorNav();%>
+            <%=cnv.getNav(usuario)%>
             <div id="page-wrapper">
                 </br>
                 <div class="row">

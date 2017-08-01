@@ -11,7 +11,7 @@
     String usuario = (String) objsession.getAttribute("usuario");
     if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
-    } else if (usuario.equals("null")) {
+    } else if (usuario == null) {
         session.invalidate();
         response.sendRedirect("index.jsp");
     }

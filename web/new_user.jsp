@@ -12,20 +12,11 @@
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (objsession.equals(false)) {
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
-    } else {
-        ControladorUsuarios con = new ControladorUsuarios();
-        if ("SuperAdministrador".equals(con.rol(usuario))) {
-        } else if ("Director".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_director.jsp");
-        } else if ("Docente".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_docente.jsp");
-        } else if ("Estudiante".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_estudiante.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+    } else if (usuario == null) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
 %>
 

@@ -4,11 +4,10 @@
     Author     : WarMachine
 --%>
 
-<%@page import="Controlador.ControladorUsuarios"%>
-<%@page import="Controlador.ControladorRoles"%>
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
-
+<%--
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
@@ -28,6 +27,7 @@
         }
     }
 %>
+
 
 <!DOCTYPE html>
 <html>
@@ -101,3 +101,4 @@
 
 </html>
 
+--%>
