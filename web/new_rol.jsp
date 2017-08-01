@@ -4,24 +4,16 @@
     Author     : WarMachine
 --%>
 
+<%@page import="Controlador.ControladorNav"%>
 <%@page import="Controlador.ControladorUsuarios"%>
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (objsession.equals(false)) {
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
-    } else {
-        ControladorUsuarios con = new ControladorUsuarios();
-        if ("SuperAdministrador".equals(con.rol(usuario))) {
-        } else if ("Director".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_director.jsp");
-        } else if ("Docente".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_docente.jsp");
-        } else if ("Estudiante".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_estudiante.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+    } else if (usuario.equals("null")) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
 %>
 
@@ -33,7 +25,8 @@
 
         <div id="wrapper">
 
-            <%@include file="navroot.jsp" %>
+            <% ControladorNav cnv = new ControladorNav();%>
+            <%=cnv.getNav(usuario)%>
 
             <div id="page-wrapper">
 
@@ -68,14 +61,14 @@
                                     </div>
                                 </form>
                                 <div id="notificacionrol">
-                                    
+
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="actualizarrol">
                             <h4>Roles</h4>
                             <div id="actroles">
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="darbajarol">
@@ -92,5 +85,5 @@
     </body>
 
     <%@include file="foother.jsp" %>
-    
+
 </html>

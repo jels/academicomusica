@@ -73,4 +73,26 @@ public class Rol_model {
         return rol;
     }
 
+    public String findRol(Usuario us) {
+        PreparedStatement pst;
+        ResultSet rs;
+        String nombre = "false";
+        try {
+            String consulta = "SELECT r.nombreRol FROM roles r, usuario u WHERE r.idRol=u.idRol AND u.nombreUsuario = ? ";
+            pst = cn.getConnection().prepareStatement(consulta);
+            pst.setString(1, us.getNombreUsuario());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                nombre = rs.getString(1);
+                return nombre;
+            } else {
+                return nombre;
+            }
+
+        } catch (Exception ex) {
+            System.err.println("Error: " + ex);
+            return nombre;
+        }
+    }
+
 }

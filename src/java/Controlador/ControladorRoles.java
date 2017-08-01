@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class ControladorRoles {
 
     public int cantidadRoles() {
-
         Rol_model cant = new Rol_model();
         System.out.println(cant.contarroles());
         return cant.contarroles();
