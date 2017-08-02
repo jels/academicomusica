@@ -1,29 +1,24 @@
 <%-- 
-    Document   : menu
-    Created on : 01/06/2017, 04:22:26 PM
+    Document   : estudiante
+    Created on : 02/08/2017, 11:03:27 AM
     Author     : WarMachine
 --%>
 
-<%@page import="Controlador.ControladorUsuarios"%>
-<%--
+<%@page import="Controlador.ControladorBody"%>
+<%@page import="Controlador.ControladorNav"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+
+<%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (usuario.equals("")) {
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
         response.sendRedirect("index.jsp");
-    } else {
-        ControladorUsuarios con = new ControladorUsuarios();
-        if ("Director".equals(con.rol(usuario))) {
-        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
-            response.sendRedirect("menu.jsp");
-        } else if ("Docente".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_docente.jsp");
-        } else if ("Estudiante".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_estudiante.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+    } else if (usuario == null) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
---%>
+%>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +27,8 @@
     <body>
 
         <div id="wrapper">
-            <%@include file="nav.jsp" %>
+            <% ControladorNav cnv = new ControladorNav();%>
+            <%=cnv.getNav(usuario)%>
 
             <div id="page-wrapper">
 
@@ -62,23 +58,23 @@
                                     <div class="form-group">
                                         <label>Primer Nombre</label>
                                         <input class="form-control" id = "primerNombreP">
-                                          <label>Segundo Nombre</label>
+                                        <label>Segundo Nombre</label>
                                         <input class="form-control" id = "segundoNombreP">
                                         <label>Primer Apellido</label>
                                         <input class="form-control" id = "primerApellidoP">
-                                          <label>Segundo Apellido</label>
+                                        <label>Segundo Apellido</label>
                                         <input class="form-control" id = "segundoApellidoP">
                                         <label>C.I.</label>
                                         <input class="form-control" id = "ciPersona">
-                                          <label>Dirección</label>
+                                        <label>Dirección</label>
                                         <input class="form-control" id = "direccionPersona">
                                         <label>Teléfono</label>
                                         <input class="form-control" id = "telefonoPersona">
-                                          <label>Fecha de Nacimiento</label>
+                                        <label>Fecha de Nacimiento</label>
                                         <input class="form-control" id = "fechaNacimPersona">
                                         <label>Sexo</label>
                                         <input class="form-control" id = "sexoPersona">
-                                          <label>Correo Electrónico</label>
+                                        <label>Correo Electrónico</label>
                                         <input class="form-control" id = "e-mailPersona">
                                         <label>Profesión</label>
                                         <input class="form-control" id = "profecionPersona">

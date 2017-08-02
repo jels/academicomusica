@@ -28,7 +28,7 @@ public class ControladorNav {
             case "Docente":
                 htmlcode += getViewNavDoce();
                 break;
-            case "Secretaria":
+            case "Secretari@":
                 htmlcode += getViewNavSecre();
                 break;
             case "Estudiante":
@@ -311,10 +311,10 @@ public class ControladorNav {
                 + "                    <a href=\"#\"><i class=\"fa fa-table fa-fw\"></i> Listar<span class=\"fa arrow\"></span></a>\n"
                 + "                    <ul class=\"nav nav-second-level\">\n"
                 + "                        <li>\n"
-                + "                            <a href=\"ver_roles.jsp\">Roles</a>\n"
+                + "                            <a href=\"show_roles.jsp\">Roles</a>\n"
                 + "                        </li>\n"
                 + "                        <li>\n"
-                + "                            <a href=\"ver_user.jsp\">Usuarios</a>\n"
+                + "                            <a href=\"show_user.jsp\">Usuarios</a>\n"
                 + "                        </li>\n"
                 + "                    </ul>\n"
                 + "                </li>\n"
@@ -1437,7 +1437,7 @@ public class ControladorNav {
                 + "                    <a href=\"#\"><i class=\"fa fa-bar-chart-o fa-fw\"></i> Gestionar<span class=\"fa arrow\"></span></a>\n"
                 + "                    <ul class=\"nav nav-second-level\">\n"
                 + "                        <li>\n"
-                + "                            <a href=\"new_estudiante.jsp\">Matricula</a>\n"
+                + "                            <a href=\"new_matricula.jsp\">Matricula</a>\n"
                 + "                        </li>\n"
                 + "                    </ul>\n"
                 + "                    <!-- /.nav-second-level -->\n"
@@ -1446,13 +1446,16 @@ public class ControladorNav {
                 + "                    <a href=\"#\"><i class=\"fa fa-table fa-fw\"></i> Ver<span class=\"fa arrow\"></span></a>\n"
                 + "                    <ul class=\"nav nav-second-level\">\n"
                 + "                        <li>\n"
-                + "                            <a href=\"#\">Estudiantes</a>\n"
+                + "                            <a href=\"show_estudiantes.jsp\">Estudiantes</a>\n"
                 + "                        </li>\n"
                 + "                        <li>\n"
-                + "                            <a href=\"#\">Docentes</a>\n"
+                + "                            <a href=\"show_docentes.jsp\">Docentes</a>\n"
                 + "                        </li>\n"
                 + "                        <li>\n"
-                + "                            <a href=\"#\">Materias</a>\n"
+                + "                            <a href=\"show_materias.jsp\">Materias</a>\n"
+                + "                        </li>\n"
+                + "                        <li>\n"
+                + "                            <a href=\"show_matriculas.jsp\">Matriculas</a>\n"
                 + "                        </li>\n"
                 + "                    </ul>\n"
                 + "                </li>\n"

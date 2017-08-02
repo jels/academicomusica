@@ -88,7 +88,7 @@ public class Usuario_model {
         ResultSet rs;
         String nombre = "";
         try {
-            String consulta = "SELECT r.nombreRol, p.primerNombreP, p.primerApellidoP, u.nombreUsuario "
+            String consulta = "SELECT p.primerNombreP, p.primerApellidoP "
                     + "FROM roles r, persona p, usuario u "
                     + "WHERE r.idRol=u.idRol "
                     + "AND p.idPersona=u.idPersona "
@@ -97,7 +97,7 @@ public class Usuario_model {
             pst.setString(1, us);
             rs = pst.executeQuery();
             if (rs.next()) {
-                nombre = "Bienvenido " + rs.getString(1);
+                nombre = " " + rs.getString(1)+" "+rs.getString(2);
             }
 
             return nombre;

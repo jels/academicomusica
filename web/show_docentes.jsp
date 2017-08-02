@@ -1,12 +1,11 @@
 <%-- 
-    Document   : menu
-    Created on : 21/06/2017, 11:26:31 PM
+    Document   : show_docentes
+    Created on : 02/08/2017, 03:11:21 PM
     Author     : WarMachine
 --%>
 
-<%@page import="Controlador.ControladorBody"%>
+<%@page import="Controlador.ControladorShow"%>
 <%@page import="Controlador.ControladorNav"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 
 <%
@@ -28,19 +27,19 @@
     <body>
 
         <div id="wrapper">
-
             <% ControladorNav cnv = new ControladorNav();%>
             <%=cnv.getNav(usuario)%>
             <div id="page-wrapper">
-                <% ControladorBody cnb = new ControladorBody();%>
-                <%=cnb.getViewBienvenida(usuario)%>
-                <%=cnb.getViewIndexBox(usuario)%>
-
+                </br>
+                <div class="row">
+                    <% ControladorShow cns=new ControladorShow(); %>
+                    <%=cns.getViewDocentes(usuario) %>
+                </div>
             </div>
-            <!-- /#page-wrapper -->
 
         </div>
         <!-- /#wrapper -->
+
     </body>
 
     <%@include file="foother.jsp" %>

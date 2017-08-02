@@ -84,6 +84,7 @@ public class Rol_model {
             rs = pst.executeQuery();
             if (rs.next()) {
                 nombre = rs.getString(1);
+                System.out.println("Rol: "+nombre);
                 return nombre;
             } else {
                 return nombre;

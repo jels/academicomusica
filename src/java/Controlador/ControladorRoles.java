@@ -24,47 +24,12 @@ public class ControladorRoles {
         Rol_model modelrol = new Rol_model();
         return modelrol.crear_rol(r);
     }
-
-    public String getViewRol() {
-        String htmlcode = "";
-        Rol_model modelrol = new Rol_model();
-        int i = 0;
-        htmlcode += ""
-                + "<div class=\"col-lg-12\">\n"
-                + "     <div class=\"panel panel-default\">\n"
-                + "         <div class=\"panel-heading\">\n"
-                + "         Roles\n"
-                + "         </div>\n"
-                + "         <div class=\"panel-body\">\n"
-                + "             <div class=\"table-responsive\">\n"
-                + "                 <table class=\"table table-striped\">\n"
-                + "                     <thead>\n"
-                + "                         <tr>\n"
-                + "                             <th>#</th>\n"
-                + "                             <th>Nombre Rol</th>\n"
-                + "                             <th>Descripcion Rol</th>\n"
-                + "                         </tr>\n"
-                + "                     </thead>\n"
-                + "                         <tbody>\n";
-        for (Rol r : modelrol.getAllRol()) {
-            
-            htmlcode += "<div class=\"row\">"
-                    + "<tr>\n"
-                    + " <td>" + r.getIdRol() + "</td>\n"
-                    + " <td>" + r.getNombreRol() + "</td>\n"
-                    + " <td>" + r.getDescripcionRol() + "</td>\n"
-                    + "</tr>\n"
-                    + "<div class=\"clear\"></div>\n"
-                    + "			  </div>";
-
-        }
-        htmlcode += "                   </tbody>\n"
-                + "                 </table>\n"
-                + "             </div>\n"
-                + "         <div>\n"
-                + "     </div>\n"
-                + "</div>";
-        return htmlcode;
+    
+    public boolean findRol(String user){
+        Usuario us=new Usuario();
+        us.setNombreUsuario(user);
+        Rol_model rm=new Rol_model();
+        return rm.findRol(us).equals("SuperAdministrador");
     }
 
     public String seleccionadorRoles() {

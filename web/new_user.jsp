@@ -4,6 +4,7 @@
     Author     : WarMachine
 --%>
 
+<%@page import="Controlador.ControladorNav"%>
 <%@page import="Controlador.ControladorUsuarios"%>
 <%@page import="Controlador.ControladorRoles"%>
 
@@ -12,11 +13,14 @@
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
-        response.sendRedirect("index.jsp");
-    } else if (usuario == null) {
+    if (objsession.equals(false) || usuario == null) {//esta linea es la que ayuda a que no salga el error de null...
         session.invalidate();
         response.sendRedirect("index.jsp");
+    } else {
+        ControladorRoles cnr = new ControladorRoles();
+        if (!cnr.findRol(usuario)) {
+            response.sendRedirect("index.jsp");
+        }
     }
 %>
 
@@ -28,7 +32,8 @@
 
         <div id="wrapper">
 
-            <%@include file="navroot.jsp" %>
+            <% ControladorNav cnv = new ControladorNav();%>
+            <%=cnv.getNav(usuario)%>
 
             <div id="page-wrapper">
 

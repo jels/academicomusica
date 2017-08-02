@@ -1,51 +1,47 @@
-<%--
-    Document   : new_rol
-    Created on : 19/07/2017, 11:42:19 AM
+<%-- 
+    Document   : new_matricula
+    Created on : 02/08/2017, 10:08:47 AM
     Author     : WarMachine
 --%>
 
-<%@page import="Controlador.ControladorRoles"%>
+<%@page import="Controlador.ControladorBody"%>
 <%@page import="Controlador.ControladorNav"%>
-<%@page import="Controlador.ControladorUsuarios"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (objsession.equals(false) || usuario == null) {//esta linea es la que ayuda a que no salga el error de null...
+    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
+        response.sendRedirect("index.jsp");
+    } else if (usuario == null) {
         session.invalidate();
         response.sendRedirect("index.jsp");
-    } else {
-        ControladorRoles cnr = new ControladorRoles();
-        if (!cnr.findRol(usuario)) {
-            response.sendRedirect("index.jsp");
-        }
     }
 %>
-
 <!DOCTYPE html>
 <html>
 
-    <%@include file="head.jsp"  %>
+    <%@include file="head.jsp" %>
+
     <body>
 
         <div id="wrapper">
 
             <% ControladorNav cnv = new ControladorNav();%>
             <%=cnv.getNav(usuario)%>
-
             <div id="page-wrapper">
-
                 <div class="panel-heading">
-                    <h1>Gestionar Los Roles</h1>
+                    <h1>Gestionar Matricula</h1>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
-                        <li class=""><a href="#crear" data-toggle="tab" aria-expanded="false">Crear</a>
+                        <li class=""><a href="#crear" data-toggle="tab" aria-expanded="false">Nuevo Estudiante</a>
                         </li>
-                        <li class=""><a href="#actualizarrol" data-toggle="tab" aria-expanded="false">Actualizar</a>
+                        <li class=""><a href="#actualizarrol" data-toggle="tab" aria-expanded="false">Instrumento-Estudiante</a>
                         </li>
-                        <li class=""><a href="#darbajarol" data-toggle="tab" aria-expanded="false">Dar de Baja</a>
+                        <li class=""><a href="#darbajarol" data-toggle="tab" aria-expanded="false">Pagos</a>
                         </li>
                     </ul>
 
@@ -54,17 +50,18 @@
                         <div class="tab-pane fade" id="crear">
                             </br>
                             <div class="col-md-6">
-                                <form action="" id="newRol">
+                                <form action="" id="newUser">
                                     <div class="form-group">
-                                        <label>Nombre Rol</label>
-                                        <input class="form-control" id = "nombreRol">
-                                        <label>Descripcion Rol</label>
-                                        <input class="form-control" id = "descripcionRol">
+                                        <label>Usuario</label>
+                                        <input class="form-control" id = "nombreUsuario">
+                                        <label>Contraceña</label>
+                                        <input class="form-control" id = "passUsuario">
+                                        
                                         </br>
-                                        <input type="button" id="insertarrol" value="Crear" class="btn btn-default" />
+                                        <input type="button" id="insertarUser" value="Crear" class="btn btn-default" />
                                     </div>
                                 </form>
-                                <div id="notificacionrol">
+                                <div id="notificacion">
 
                                 </div>
                             </div>
@@ -83,9 +80,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.panel-body -->
+
             </div>
+            <!-- /#page-wrapper -->
+
         </div>
+        <!-- /#wrapper -->
     </body>
 
     <%@include file="foother.jsp" %>

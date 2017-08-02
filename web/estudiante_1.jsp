@@ -1,22 +1,28 @@
 <%-- 
-    Document   : materia
-    Created on : 02/08/2017, 11:04:08 AM
+    Document   : menu
+    Created on : 01/06/2017, 04:22:26 PM
     Author     : WarMachine
 --%>
 
-<%@page import="Controlador.ControladorBody"%>
-<%@page import="Controlador.ControladorNav"%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@page import="Controlador.ControladorUsuarios"%>
 
 <%
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("usuario");
-    if (objsession.equals(false)) {//esta linea es la que ayuda a que no salga el error de null...
+    if (usuario.equals("")) {
         response.sendRedirect("index.jsp");
-    } else if (usuario == null) {
-        session.invalidate();
-        response.sendRedirect("index.jsp");
+    } else {
+        ControladorUsuarios con = new ControladorUsuarios();
+        if ("Director".equals(con.rol(usuario))) {
+        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
+            response.sendRedirect("menu.jsp");
+        } else if ("Docente".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_docente.jsp");
+        } else if ("Estudiante".equals(con.rol(usuario))) {
+            response.sendRedirect("menu_estudiante.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
     }
 %>
 
@@ -27,14 +33,12 @@
     <body>
 
         <div id="wrapper">
-            
-            <% ControladorNav cnv = new ControladorNav();%>
-            <%=cnv.getNav(usuario)%>
-            
+            <%@include file="nav.jsp" %>
+
             <div id="page-wrapper">
 
                 <div class="panel-heading">
-                    <h1>Gestionar Las Materias</h1>
+                    <h1>Gestionar Los Estudiantes</h1>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -55,14 +59,32 @@
                         <div class="tab-pane fade" id="crear">
                             </br>
                             <div class="col-md-6">
-                                <form action="reg-mat.do" id="insertarMateria">
+                                <form action="reg-persona.do" id="idPersona">
                                     <div class="form-group">
-                                        <label>Nombre Materia</label>
-                                        <input class="form-control" id = "nombremateria">
-                                        <label>Descripcion Materia</label>
-                                        <input class="form-control" id = "descripcionmateria">
+                                        <label>Primer Nombre</label>
+                                        <input class="form-control" id = "primerNombreP">
+                                          <label>Segundo Nombre</label>
+                                        <input class="form-control" id = "segundoNombreP">
+                                        <label>Primer Apellido</label>
+                                        <input class="form-control" id = "primerApellidoP">
+                                          <label>Segundo Apellido</label>
+                                        <input class="form-control" id = "segundoApellidoP">
+                                        <label>C.I.</label>
+                                        <input class="form-control" id = "ciPersona">
+                                          <label>Dirección</label>
+                                        <input class="form-control" id = "direccionPersona">
+                                        <label>Teléfono</label>
+                                        <input class="form-control" id = "telefonoPersona">
+                                          <label>Fecha de Nacimiento</label>
+                                        <input class="form-control" id = "fechaNacimPersona">
+                                        <label>Sexo</label>
+                                        <input class="form-control" id = "sexoPersona">
+                                          <label>Correo Electrónico</label>
+                                        <input class="form-control" id = "e-mailPersona">
+                                        <label>Profesión</label>
+                                        <input class="form-control" id = "profecionPersona">
                                         </br>
-                                        <input type="button" id="insertarmateria" value="Crear" class="btn btn-default" />
+                                        <input type="button" id="insertarpersona" value="Crear" class="btn btn-default" />
                                     </div>
                                 </form>
                             </div>
