@@ -37,42 +37,24 @@
                 <div class="panel-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
-                        <li class=""><a href="#crear" data-toggle="tab" aria-expanded="false">Nuevo Estudiante</a>
+                        <li class=""><a href="#new" data-toggle="tab" aria-expanded="false">Nuevo Estudiante</a>
                         </li>
-                        <li class=""><a href="#actualizarrol" data-toggle="tab" aria-expanded="false">Instrumento-Estudiante</a>
+                        <li class=""><a href="#curso" data-toggle="tab" aria-expanded="false">Curso-Estudiante</a>
                         </li>
-                        <li class=""><a href="#darbajarol" data-toggle="tab" aria-expanded="false">Pagos</a>
+                        <li class=""><a href="#pago" data-toggle="tab" aria-expanded="false">Pagos</a>
                         </li>
                     </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane fade" id="crear">
-                            </br>
-                            <div class="col-md-6">
-                                <form action="" id="newUser">
-                                    <div class="form-group">
-                                        <label>Usuario</label>
-                                        <input class="form-control" id = "nombreUsuario">
-                                        <label>Contraceña</label>
-                                        <input class="form-control" id = "passUsuario">
-                                        
-                                        </br>
-                                        <input type="button" id="insertarUser" value="Crear" class="btn btn-default" />
-                                    </div>
-                                </form>
-                                <div id="notificacion">
-
-                                </div>
-                            </div>
+                        
+                        <% ControladorBody cnb=new ControladorBody(); %>
+                        <%=cnb.getViewNewEst(usuario) %>
+                        
+                        <div class="tab-pane fade" id="curso">
+                            
                         </div>
-                        <div class="tab-pane fade" id="actualizarrol">
-                            <h4>Roles</h4>
-                            <div id="actroles">
-
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="darbajarol">
+                        <div class="tab-pane fade" id="pago">
                             <h4>Roles</h4>
                             <div id="actroles">
 
