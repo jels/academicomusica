@@ -31,7 +31,14 @@ public class ControladorRoles {
         Rol_model rm=new Rol_model();
         return rm.findRol(us).equals("SuperAdministrador");
     }
-
+    
+    public boolean secreOdire(String user){
+        Usuario us=new Usuario();
+        us.setNombreUsuario(user);
+        Rol_model rm=new Rol_model();
+        return rm.findRol(us).equals("Director") || rm.findRol(us).equals("Secretari@");
+    }
+    
     public String seleccionadorRoles() {
         String htmlcode = "";
         Rol_model modelrol = new Rol_model();

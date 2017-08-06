@@ -28,7 +28,8 @@ public class Persona {
 
     }
 
-    public Persona(String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona) {
+    public Persona(int idPersona, String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona) {
+        this.idPersona = idPersona;
         this.PrimerNombreP = PrimerNombreP;
         this.SegundoNombreP = SegundoNombreP;
         this.PrimerApellidoP = PrimerApellidoP;
@@ -41,7 +42,7 @@ public class Persona {
         this.emailPersona = emailPersona;
         this.profesionPersona = profesionPersona;
     }
-    
+
     /**
      * @return the idPersona
      */
@@ -209,8 +210,5 @@ public class Persona {
     public void setProfesionPersona(String profesionPersona) {
         this.profesionPersona = profesionPersona;
     }
-    
-    
-    
-    
+
 }

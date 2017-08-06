@@ -18,6 +18,12 @@ public class Materia {
     public Materia() {
     }
 
+    public Materia(int idMateria, String nombreMateria, String descripcionMateria) {
+        this.idMateria = idMateria;
+        this.nombreMateria = nombreMateria;
+        this.descripcionMateria = descripcionMateria;
+    }
+    
     public int getIdMateria() {
         return idMateria;
     }

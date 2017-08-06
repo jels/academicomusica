@@ -7,23 +7,21 @@ package Modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  *
- * @author Luis
+ * @author WarMachine
  */
-public class Materia_model {
-    
+public class Matricula_model {
+
     Conexion cn = new Conexion();
-    
-    public int contarMaterias() {
+
+    public int contarMatriculas() {
 
         PreparedStatement pst;
         ResultSet rs;
         try {
-            String consulta = "SELECT COUNT(idMateria) FROM materia";
+            String consulta = "SELECT COUNT(idMatricula) FROM matricula";
             pst = cn.getConnection().prepareStatement(consulta);
             rs = pst.executeQuery();
             if (rs.next()) {
@@ -38,40 +36,21 @@ public class Materia_model {
         }
 
     }
-    
-    public boolean insertarMateria(Materia mat) {
 
-        PreparedStatement pst;
-        int rs;
-
-        try {
-            String consulta = "INSERT INTO CURSO (idCurso, nombreCurso, detalleCurso) values(null,?,?)";
-            pst = cn.getConnection().prepareStatement(consulta);
-            pst.setString(1, mat.getNombreMateria());
-            pst.setString(2, mat.getDescripcionMateria());
-            rs = pst.executeUpdate();
-            if (rs == 1) {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        } catch (Exception ex) {
-            System.err.println("Error: " + ex);
-            return false;
-        }
-    }
-    
-    public ResultSet getAllMate() {
+    public ResultSet getAllMatri() {
 
         PreparedStatement pst;
         ResultSet rs = null;
 
         try {
-            String sql = "SELECT * "
-                    + "FROM materia";
+            String sql = "SELECT p.primerNombreP, p.primerApellidoP, c.nombreCurso, "
+                    + "m.fechaMatricula, t.tipoEstudiante "
+                    + "FROM matricula m, estudiante e, "
+                    + "tipoestudiante t, curso c, persona p "
+                    + "WHERE p.idPersona=e.idPersona "
+                    + "AND t.idTipoEstudiante=e.idTipoEstudiante "
+                    + "AND e.idEstudiante=m.idEstudiante "
+                    + "AND c.idCurso=m.idCurso ";
             pst = cn.getConnection().prepareCall(sql);
             rs = pst.executeQuery();
             return rs;
@@ -80,5 +59,5 @@ public class Materia_model {
             return rs;
         }
     }
-    
+
 }
