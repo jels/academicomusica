@@ -7,23 +7,7 @@
 <%@page import="Controlador.ControladorUsuarios"%>
 
 <%
-    HttpSession objsession = request.getSession(false);
-    String usuario = (String) objsession.getAttribute("usuario");
-    if (usuario.equals("")) {
-        response.sendRedirect("index.jsp");
-    } else {
-        ControladorUsuarios con = new ControladorUsuarios();
-        if ("Director".equals(con.rol(usuario))) {
-        } else if ("SuperAdministrador".equals(con.rol(usuario))) {
-            response.sendRedirect("menu.jsp");
-        } else if ("Docente".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_docente.jsp");
-        } else if ("Estudiante".equals(con.rol(usuario))) {
-            response.sendRedirect("menu_estudiante.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
-    }
+    
 %>
 
 <!DOCTYPE html>
@@ -33,7 +17,6 @@
     <body>
 
         <div id="wrapper">
-            <%@include file="nav.jsp" %>
 
             <div id="page-wrapper">
 

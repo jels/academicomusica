@@ -327,4 +327,61 @@ public class ControladorShow {
         return htmlcode;
     }
 
+    public String getViewCursos() {
+        String htmlcode = "";
+        Curso_model modelcurso = new Curso_model();
+        ResultSet rs = modelcurso.getAllCursos();
+        int i = 1;
+        htmlcode += ""
+                + "<div class=\"col-lg-12\">\n"
+                + "     <div class=\"panel panel-default\">\n"
+                + "         <div class=\"panel-heading\">\n"
+                + "         Cursos\n"
+                + "         </div>\n"
+                + "         <div class=\"panel-body\">\n"
+                + "             <div class=\"table-responsive\">\n"
+                + "                 <table class=\"table table-striped\">\n"
+                + "                     <thead>\n"
+                + "                         <tr>\n"
+                + "                             <th>#</th>\n"
+                + "                             <th>Nombre</th>\n"
+                + "                             <th>Descripcion</th>\n"
+                + "                             <th>Estado</th>\n"
+                + "                             <th>Ver</th>\n"
+                + "                         </tr>\n"
+                + "                     </thead>\n"
+                + "                         <tbody>\n";
+        try {
+            while (rs.next()) {
+                htmlcode += "<div class=\"row\">"
+                        + "<tr>\n"
+                        + " <td>" + i + "</td>\n"
+                        + " <td>" + rs.getString(2) + "</td>\n"
+                        + " <td>" + rs.getString(3) + "</td>\n";
+                if (rs.getInt(4) == 1) {
+                    htmlcode += " <td>SI</td>\n";
+                } else {
+                    htmlcode += " <td>NO</td>\n";
+                }
+                htmlcode += " <td>"
+                        + "<button type=\"button\" class=\"btn btn-outline btn-info\">Ver</button>"
+                        + "</td>\n"
+                        + "</tr>\n"
+                        + "<div class=\"clear\"></div>\n"
+                        + "			  </div>";
+                i++;
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        htmlcode += "                   </tbody>\n"
+                + "                 </table>\n"
+                + "             </div>\n"
+                + "         <div>\n"
+                + "     </div>\n"
+                + "</div>";
+        return htmlcode;
+    }
+
 }

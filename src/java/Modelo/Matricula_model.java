@@ -21,7 +21,7 @@ public class Matricula_model {
         PreparedStatement pst;
         ResultSet rs;
         try {
-            String consulta = "SELECT COUNT(idMatricula) FROM matricula";
+            String consulta = "SELECT COUNT(idMatricula) FROM matricula WHERE estadoMatricula=1";
             pst = cn.getConnection().prepareStatement(consulta);
             rs = pst.executeQuery();
             if (rs.next()) {

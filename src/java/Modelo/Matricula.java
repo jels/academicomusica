@@ -17,18 +17,20 @@ public class Matricula {
     private int montoTotal;
     private int idEstudiante;
     private int idCurso;
+    private int estadoMatricula;
 
     public Matricula() {
     }
 
-    public Matricula(int idMatricula, String fechaMatricula, int montoTotal, int idEstudiante, int idCurso) {
+    public Matricula(int idMatricula, String fechaMatricula, int montoTotal, int idEstudiante, int idCurso, int estadoMatricula) {
         this.idMatricula = idMatricula;
         this.fechaMatricula = fechaMatricula;
         this.montoTotal = montoTotal;
         this.idEstudiante = idEstudiante;
         this.idCurso = idCurso;
-    }  
-    
+        this.estadoMatricula = estadoMatricula;
+    }
+   
     /**
      * @return the idMatricula
      */
@@ -97,6 +99,20 @@ public class Matricula {
      */
     public void setIdCurso(int idCurso) {
         this.idCurso = idCurso;
+    }
+
+    /**
+     * @return the estadoMatricula
+     */
+    public int getEstadoMatricula() {
+        return estadoMatricula;
+    }
+
+    /**
+     * @param estadoMatricula the estadoMatricula to set
+     */
+    public void setEstadoMatricula(int estadoMatricula) {
+        this.estadoMatricula = estadoMatricula;
     }
     
     

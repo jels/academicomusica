@@ -51,29 +51,29 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        
-                        <% ControladorBody cnb=new ControladorBody(); %>
-                        <%=cnb.getViewNewEst() %>
-                        
+                        <div class="tab-pane fade" id="new">
+                            <% ControladorBody cnb = new ControladorBody();%>
+                            <%=cnb.getViewNewEst()%>
+                        </div>
                         <div class="tab-pane fade" id="curso">
-                            
+                            <% ControladorBody cnb2 = new ControladorBody();%>
+                            <%=cnb2.getViewCursoEst()%>
                         </div>
                         <div class="tab-pane fade" id="pago">
-                            <h4>Roles</h4>
-                            <div id="actroles">
-
-                            </div>
+                            <% ControladorBody cnb3 = new ControladorBody();%>
+                            <%=cnb3.getViewPagos()%>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- /#page-wrapper -->
 
         </div>
-        <!-- /#wrapper -->
-    </body>
+        <!-- /#page-wrapper -->
 
-    <%@include file="foother.jsp" %>
+    </div>
+    <!-- /#wrapper -->
+</body>
+
+<%@include file="foother.jsp" %>
 
 </html>

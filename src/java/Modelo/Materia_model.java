@@ -76,7 +76,7 @@ public class Materia_model {
             rs = pst.executeQuery();
             return rs;
         } catch (Exception e) {
-            System.out.println("Error getAllRol: " + e);
+            System.out.println("Error getAllMate: " + e);
             return rs;
         }
     }
