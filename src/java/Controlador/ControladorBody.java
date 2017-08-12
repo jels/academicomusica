@@ -329,6 +329,7 @@ public class ControladorBody {
 
     public String getViewNewEst() {
 
+//13
         String htmlcode = ""
                 + "                    <form action=\"\" id=\"newPerson\">\n"
                 + "                        <h3 class=\"text-center\">Datos del Estudiante</h3>\n"
@@ -598,7 +599,6 @@ public class ControladorBody {
 
     public String getViewPagos() {
         String htmlcode = "";
-        
 
         return "";
     }

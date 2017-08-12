@@ -23,12 +23,14 @@ public class Persona {
     private String sexoPersona;
     private String emailPersona;
     private String profesionPersona;
+    private String interno;
+    private String nacionalidadP;
 
     public Persona() {
 
     }
 
-    public Persona(int idPersona, String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona) {
+    public Persona(int idPersona, String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona, String interno, String nacionalidadP) {
         this.idPersona = idPersona;
         this.PrimerNombreP = PrimerNombreP;
         this.SegundoNombreP = SegundoNombreP;
@@ -41,6 +43,8 @@ public class Persona {
         this.sexoPersona = sexoPersona;
         this.emailPersona = emailPersona;
         this.profesionPersona = profesionPersona;
+        this.interno = interno;
+        this.nacionalidadP = nacionalidadP;
     }
 
     /**
@@ -209,6 +213,34 @@ public class Persona {
      */
     public void setProfesionPersona(String profesionPersona) {
         this.profesionPersona = profesionPersona;
+    }
+
+    /**
+     * @return the interno
+     */
+    public String getInterno() {
+        return interno;
+    }
+
+    /**
+     * @param interno the interno to set
+     */
+    public void setInterno(String interno) {
+        this.interno = interno;
+    }
+
+    /**
+     * @return the nacionalidadP
+     */
+    public String getNacionalidadP() {
+        return nacionalidadP;
+    }
+
+    /**
+     * @param nacionalidadP the nacionalidadP to set
+     */
+    public void setNacionalidadP(String nacionalidadP) {
+        this.nacionalidadP = nacionalidadP;
     }
 
 }

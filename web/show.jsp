@@ -37,50 +37,31 @@
             <div id="page-wrapper">
 
                 <div class="panel-heading">
-                    <h1>Gestionar Los Estudiantes</h1>
+                    <h1>Gestionar Pagos</h1>
                 </div>
                 <!-- desde aki cortar...-->
 
                 </br>
-                <form action="" id="cursoEstudiante">
+                <form action="" id="cursos">
                     <h3 class="text-center">Asignar Curso al Estudiante</h3>
                     <div class="row show-grid">
                         <div class="col-md-4">
                             <label>Curso</label>
-                            <select class="form-control" id="cursoEst" required/>
-                                <option> </option>
-                                <option>1</option>
-                                <option>2</option>
+                            <select class="form-control" id="cursoEst">
+                                <option value="Violin">Violin</option>
+                                <option value="Piano">Piano</option>
                             </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Estudiante</label>
-                            <select class="form-control" id="estCurso" required/>
-                                <option> </option>
-                                <option>1</option>
-                                <option>2</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Total a Cancelar</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">Bs.</span>
-                                <input class="form-control" placeholder="Total en Bolivianos" min="1" title="Solo numeros..." type="number" required/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row show-grid">
-                        <div class="col-md-4">
-                            <label>Fecha de Matricula</label>
-                            <input class="form-control" id = "nacimientoE" placeholder="YYYY-MM-DD" pattern="^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$" title="YYYY-MM-DD" required/>
                         </div>
                     </div>
                     <div class="row show-grid">
                         <div class="col-md-2">
-                            <input type="submit" id="newCursoEstu" value="Crear" class="btn btn-default center-block" />
+                            <input type="button" id="newCursoEstu" value="Crear" class="btn btn-default center-block">
                         </div>
                     </div>
                 </form>
+
+
+
 
             </div>
         </div>
@@ -97,6 +78,34 @@
 
 
         <!--
+        
+        
+        
+        <div class="col-md-4">
+                        <label>Estudiante</label>
+                        <select class="form-control" id="estCurso" required/>
+                        <option> </option>
+                        <option>1</option>
+                        <option>2</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Total a Cancelar</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">Bs.</span>
+                            <input class="form-control" placeholder="Total en Bolivianos" min="1" title="Solo numeros..." type="number" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row show-grid">
+                    <div class="col-md-4">
+                        <label>Fecha de Matricula</label>
+                        <input class="form-control" id = "nacimientoE" placeholder="YYYY-MM-DD" pattern="^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$" title="YYYY-MM-DD" required/>
+                    </div>
+                </div>
+        
+        
+        
         
                         <div class="row show-grid">
                             </br>

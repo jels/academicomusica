@@ -127,6 +127,34 @@ window.addEventListener('load', function () {
 });
 
 
+window.addEventListener('load', function () {
+    document.getElementById('insertarrol').addEventListener('click', function () {
+        var nombreRol = document.getElementById('nombreRol').value;
+        var descripcionRol = document.getElementById('descripcionRol').value;
+        var bandera = false;
+        if (nombreRol.length > 0 && descripcionRol.length > 0) {
+            bandera = true;
+        }
+        if (bandera) {
+            $.post('regrol.do', {
+                nombreRol: nombreRol,
+                descripcionRol: descripcionRol
+            }, function (responseText) {
+                if (responseText === "true") {
+                    $('#notificacionrol').html("<div class=\"panel-body\"><div class=\"alert alert-success text-center\">Rol Creado Correctamente</div></div>");
+                    window.location.href = "new_rol.jsp";
+                } else {
+                    $('#notificacionrol').html("<div class=\"panel-body\"><div class=\"alert alert-danger text-center\">Error Al Crear el Rol</div></div>");
+                }
+            });
+        } else {
+            alert('Rellene todos los campos...');
+        }
+    });
+});
+
+
+
 
 
 

@@ -44,6 +44,11 @@ public class ControladorUsuarios {
         rs = usm.autenticacion(us);
         return rs != null;
     }
+    
+    public boolean existeUsuario(Usuario us){
+        return false;
+    }
+    
 
 //    private static String md5(String clear) throws Exception {
 //        MessageDigest md = MessageDigest.getInstance("MD5");
