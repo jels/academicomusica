@@ -10,17 +10,30 @@ package Modelo;
  * @author WarMachine
  */
 public class Estudiante {
-    
+
     private int idEstudiante;
     private String estudioMusica;
     private String disponeInstruento;
+    private String descripcionE;
+    private int activoE;
     private int idTipoEstudiante;
     private int idPadre;
     private int idPersona;
 
     public Estudiante() {
-    }   
-    
+    }
+
+    public Estudiante(int idEstudiante, String estudioMusica, String disponeInstruento, String descripcionE, int activoE, int idTipoEstudiante, int idPadre, int idPersona) {
+        this.idEstudiante = idEstudiante;
+        this.estudioMusica = estudioMusica;
+        this.disponeInstruento = disponeInstruento;
+        this.descripcionE = descripcionE;
+        this.activoE = activoE;
+        this.idTipoEstudiante = idTipoEstudiante;
+        this.idPadre = idPadre;
+        this.idPersona = idPersona;
+    }
+
     /**
      * @return the idEstudiante
      */
@@ -64,6 +77,34 @@ public class Estudiante {
     }
 
     /**
+     * @return the descripcionE
+     */
+    public String getDescripcionE() {
+        return descripcionE;
+    }
+
+    /**
+     * @param descripcionE the descripcionE to set
+     */
+    public void setDescripcionE(String descripcionE) {
+        this.descripcionE = descripcionE;
+    }
+
+    /**
+     * @return the activoE
+     */
+    public int getActivoE() {
+        return activoE;
+    }
+
+    /**
+     * @param activoE the activoE to set
+     */
+    public void setActivoE(int activoE) {
+        this.activoE = activoE;
+    }
+
+    /**
      * @return the idTipoEstudiante
      */
     public int getIdTipoEstudiante() {
@@ -104,10 +145,5 @@ public class Estudiante {
     public void setIdPersona(int idPersona) {
         this.idPersona = idPersona;
     }
-    
-    
-    
-    
-    
-    
+
 }

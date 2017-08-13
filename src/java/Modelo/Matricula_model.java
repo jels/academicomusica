@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import com.oracle.webservices.api.databinding.DatabindingModeFeature;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -57,6 +58,73 @@ public class Matricula_model {
         } catch (Exception e) {
             System.out.println("Error getAllRol: " + e);
             return rs;
+        }
+    }
+
+    public boolean newMatricula(Matricula ma) {
+
+        PreparedStatement pst;
+
+        try {
+            String consulta = "INSERT INTO matricula(fechaMatricula, "
+                    + "montoTotal, idEstudiante, "
+                    + "idCurso, estadoMatricula) "
+                    + "VALUES (?,?,?,?,?)";
+            pst = cn.getConnection().prepareStatement(consulta);
+            pst.setString(1, ma.getFechaMatricula());
+            pst.setInt(2, ma.getMontoTotal());
+            pst.setInt(3, ma.getIdEstudiante());
+            pst.setInt(4, ma.getIdCurso());
+            pst.setInt(5, ma.getEstadoMatricula());
+            return pst.executeUpdate() == 1;
+
+        } catch (Exception ex) {
+            System.err.println("Error newMatricula: " + ex);
+            return false;
+        }
+        
+    }
+
+    public boolean finMatricula() {
+        return finEstudiante() && finMatri() && finPersona();
+    }
+
+    private boolean finEstudiante() {
+
+        PreparedStatement pst;
+        try {
+            String consulta = "UPDATE estudiante SET activo=0 WHERE activo=1";
+            pst = cn.getConnection().prepareStatement(consulta);
+            return pst.executeUpdate() == 1;
+        } catch (Exception ex) {
+            System.err.println("Error Cambiar estado Matricula: " + ex);
+            return false;
+        }
+    }
+
+    private boolean finPersona() {
+
+        PreparedStatement pst;
+        try {
+            String consulta = "UPDATE persona SET estadoPersona=0 WHERE estadoPersona=1";
+            pst = cn.getConnection().prepareStatement(consulta);
+            return pst.executeUpdate() == 1;
+        } catch (Exception ex) {
+            System.err.println("Error Cambiar estado Matricula: " + ex);
+            return false;
+        }
+    }
+
+    private boolean finMatri() {
+
+        PreparedStatement pst;
+        try {
+            String consulta = "UPDATE matricula SET estadoMatricula=0 WHERE estadoMatricula=1";
+            pst = cn.getConnection().prepareStatement(consulta);
+            return pst.executeUpdate() == 1;
+        } catch (Exception ex) {
+            System.err.println("Error Cambiar estado Matricula: " + ex);
+            return false;
         }
     }
 

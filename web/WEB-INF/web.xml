@@ -32,6 +32,10 @@
         <servlet-name>RegistroUser</servlet-name>
         <servlet-class>Servlets.RegistroUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MatriculaEstudiante</servlet-name>
+        <servlet-class>Servlets.MatriculaEstudiante</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login.do</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>RegistroUser</servlet-name>
         <url-pattern>/reguser.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MatriculaEstudiante</servlet-name>
+        <url-pattern>/mat-est.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

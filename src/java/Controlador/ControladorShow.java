@@ -27,7 +27,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Docentes\n"
+                + "         <h3>Docentes</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -87,7 +87,20 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Estudiantes\n"
+                + "            <h3>Estudiantes</h3>\n"
+                + "             <div class=\"row\">\n"
+                + "                  <div class=\"col-md-4\"></div>\n"
+                + "                  <div class=\"col-md-4\"></div>\n"
+                + "                  <div class=\"col-md-4\">\n"
+                + "                      <div class=\"form-group input-group\">\n"
+                + "                          <input class=\"form-control\" type=\"text\" placeholder=\"Buscar Estudiante\" disabled/>\n"
+                + "                          <span class=\"input-group-btn\">\n"
+                + "                              <button class=\"btn btn-default\" type=\"button\" id=\"busquedaEstudiante\" disabled/><i class=\"fa fa-search\"></i>\n"
+                + "                              </button>\n"
+                + "                          </span>\n"
+                + "                      </div>\n"
+                + "                  </div>\n"
+                + "             </div>"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -144,7 +157,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Materias\n"
+                + "         <h3>Materias</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -195,7 +208,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Materias\n"
+                + "         <h3>Materias</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -250,7 +263,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Roles\n"
+                + "         <h3>Roles</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -293,7 +306,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Usuarios\n"
+                + "         <h3>Usuarios</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -336,7 +349,7 @@ public class ControladorShow {
                 + "<div class=\"col-lg-12\">\n"
                 + "     <div class=\"panel panel-default\">\n"
                 + "         <div class=\"panel-heading\">\n"
-                + "         Cursos\n"
+                + "         <h3>Cursos</h3>\n"
                 + "         </div>\n"
                 + "         <div class=\"panel-body\">\n"
                 + "             <div class=\"table-responsive\">\n"
@@ -381,6 +394,74 @@ public class ControladorShow {
                 + "         <div>\n"
                 + "     </div>\n"
                 + "</div>";
+        return htmlcode;
+    }
+
+    public String getViewPadres() {
+        String htmlcode = "";
+        Estudiante_model modelest = new Estudiante_model();
+        Padre_model modelpadre = new Padre_model();
+        ResultSet rs1 = modelest.getAllEstudiantes();
+
+        int i = 1;
+        htmlcode += ""
+                + "<div class=\"col-lg-12\">\n"
+                + "     <div class=\"panel panel-default\">\n"
+                + "         <div class=\"panel-heading\">\n"
+                + "         <h3>Padres</h3>\n"
+                + "         </div>\n"
+                + "         <div class=\"panel-body\">\n"
+                + "             <div class=\"table-responsive\">\n"
+                + "                 <table class=\"table table-striped\">\n"
+                + "                     <thead>\n"
+                + "                         <tr>\n"
+                + "                             <th>#</th>\n"
+                + "                             <th>Nombre Estudiante</th>\n"
+                + "                             <th>Nombre Responsable</th>\n"
+                + "                             <th>Telefono Responsable</th>\n"
+                + "                             <th>Ver</th>\n"
+                + "                         </tr>\n"
+                + "                     </thead>\n"
+                + "                         <tbody>\n";
+        try {
+            while (rs1.next()) {
+                htmlcode += "<div class=\"row\">"
+                        + "<tr>\n"
+                        + " <td>" + i + "</td>\n"
+                        + " <td>" + rs1.getString(1) + " " + rs1.getString(2) + "</td>\n";
+                ResultSet rs2 = modelpadre.getAllPadres(rs1.getInt(3));
+                while (rs2.next()) {
+                    htmlcode += " <td>" + rs2.getString(1) + " " + rs2.getString(2) + "</td>\n"
+                            + " <td>" + rs2.getString(3) + "</td>\n";
+                }
+                htmlcode += " <td>"
+                        + "<button type=\"button\" class=\"btn btn-outline btn-info\">Ver</button>"
+                        + "</td>\n"
+                        + "</tr>\n"
+                        + "<div class=\"clear\"></div>\n"
+                        + "			  </div>";
+                i++;
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        htmlcode += "                   </tbody>\n"
+                + "                 </table>\n"
+                + "             </div>\n"
+                + "         <div>\n"
+                + "     </div>\n"
+                + "</div>";
+        return htmlcode;
+    }
+
+    public String getViewPagos() {
+
+        String htmlcode = "";
+        
+        
+        
+        
         return htmlcode;
     }
 

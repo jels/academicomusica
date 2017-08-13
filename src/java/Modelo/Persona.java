@@ -25,12 +25,13 @@ public class Persona {
     private String profesionPersona;
     private String interno;
     private String nacionalidadP;
+    private int estadoPersona;
 
     public Persona() {
 
     }
 
-    public Persona(int idPersona, String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona, String interno, String nacionalidadP) {
+    public Persona(int idPersona, String PrimerNombreP, String SegundoNombreP, String PrimerApellidoP, String SegundoApellidoP, String ciPersona, String direccionPersona, String telefonoPersona, String fechaNacimPersona, String sexoPersona, String emailPersona, String profesionPersona, String interno, String nacionalidadP, int estadoPersona) {
         this.idPersona = idPersona;
         this.PrimerNombreP = PrimerNombreP;
         this.SegundoNombreP = SegundoNombreP;
@@ -45,6 +46,7 @@ public class Persona {
         this.profesionPersona = profesionPersona;
         this.interno = interno;
         this.nacionalidadP = nacionalidadP;
+        this.estadoPersona = estadoPersona;
     }
 
     /**
@@ -242,5 +244,21 @@ public class Persona {
     public void setNacionalidadP(String nacionalidadP) {
         this.nacionalidadP = nacionalidadP;
     }
+
+    /**
+     * @return the estadoPersona
+     */
+    public int getEstadoPersona() {
+        return estadoPersona;
+    }
+
+    /**
+     * @param estadoPersona the estadoPersona to set
+     */
+    public void setEstadoPersona(int estadoPersona) {
+        this.estadoPersona = estadoPersona;
+    }
+
+    
 
 }

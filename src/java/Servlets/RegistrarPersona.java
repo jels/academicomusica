@@ -17,7 +17,7 @@ import Modelo.*;
 
 /**
  *
- * @author Jorge
+ * @author Warmachine
  */
 public class RegistrarPersona extends HttpServlet {
 
@@ -35,18 +35,8 @@ public class RegistrarPersona extends HttpServlet {
         response.setContentType("text/html; charset=iso-8859-1");
         PrintWriter out = response.getWriter();
 
-//        Usuario us = new Usuario();
-//        us.setNombreUsuario(request.getParameter("nombreUsuario"));
-//        us.setPassword(request.getParameter("passUsuario"));
-//        us.setIdPersona(1);
-//        us.setIdRol(Integer.parseInt(request.getParameter("idRol")));
-//        ControladorUsuarios cru = new ControladorUsuarios();
         ControladorMatricula crm = new ControladorMatricula();
 
-//                tipoEstudioE
-//        estudioMusicaE 
-//                disponeInstrumentoE
-//        descripcionE
         Persona estudiante = new Persona();
         estudiante.setPrimerNombreP(request.getParameter("primerNombreE"));
         if (request.getParameter("segundoNombreE").equals("")) {
@@ -56,9 +46,9 @@ public class RegistrarPersona extends HttpServlet {
         }
         estudiante.setPrimerApellidoP(request.getParameter("primerApelidoE"));
         if (request.getParameter("segundoApelidoE").equals("")) {
-            estudiante.setPrimerApellidoP(null);
+            estudiante.setSegundoApellidoP(null);
         } else {
-            estudiante.setPrimerApellidoP(request.getParameter("segundoApelidoE"));
+            estudiante.setSegundoApellidoP(request.getParameter("segundoApelidoE"));
         }
         estudiante.setCiPersona(request.getParameter("ciE"));
         estudiante.setNacionalidadP(request.getParameter("nacionalidadE"));
@@ -69,74 +59,63 @@ public class RegistrarPersona extends HttpServlet {
         estudiante.setSexoPersona(request.getParameter("sexoE"));
         estudiante.setEmailPersona(request.getParameter("emailE"));
         estudiante.setProfesionPersona(request.getParameter("profecionE"));
+        estudiante.setEstadoPersona(1);
 
-        //primerNombreP
-        //segundoNombreP
-        //primerApelidoP
-        //segundoApelidoP
-        //ciP
-        //nacionalidadP
-        //internadoP
-        //direccionP
-        //telefonoP
-        //nacimientoP
-        //sexoP
-        //emailP
-        //profecionP
         Persona padre = new Persona();
-        padre.setPrimerNombreP(request.getParameter(""));
-        if (request.getParameter("").equals("")) {
+        padre.setPrimerNombreP(request.getParameter("primerNombreP"));
+        if (request.getParameter("segundoNombreP").equals("")) {
             padre.setSegundoNombreP(null);
         } else {
-            padre.setSegundoNombreP(request.getParameter(""));
+            padre.setSegundoNombreP(request.getParameter("segundoNombreP"));
         }
-        padre.setPrimerApellidoP(request.getParameter(""));
-        if (request.getParameter("").equals("")) {
-            padre.setPrimerApellidoP(null);
+        padre.setPrimerApellidoP(request.getParameter("primerApelidoP"));
+        if (request.getParameter("segundoApelidoP").equals("")) {
+            padre.setSegundoApellidoP(null);
         } else {
-            padre.setPrimerApellidoP(request.getParameter(""));
+            padre.setSegundoApellidoP(request.getParameter("segundoApelidoP"));
         }
-        padre.setCiPersona(request.getParameter(""));
-        padre.setNacionalidadP(request.getParameter(""));
-        padre.setInterno(request.getParameter(""));
-        padre.setDireccionPersona(request.getParameter(""));
-        padre.setTelefonoPersona(request.getParameter(""));
-        padre.setFechaNacimPersona(request.getParameter(""));
-        padre.setSexoPersona(request.getParameter(""));
-        padre.setEmailPersona(request.getParameter(""));
-        padre.setProfesionPersona(request.getParameter(""));
+        padre.setCiPersona(request.getParameter("ciP"));
+        padre.setNacionalidadP(request.getParameter("nacionalidadP"));
+        padre.setInterno(request.getParameter("internadoP"));
+        padre.setDireccionPersona(request.getParameter("direccionP"));
+        padre.setTelefonoPersona(request.getParameter("telefonoP"));
+        padre.setFechaNacimPersona(request.getParameter("nacimientoP"));
+        padre.setSexoPersona(request.getParameter("sexoP"));
+        padre.setEmailPersona(request.getParameter("emailP"));
+        padre.setProfesionPersona(request.getParameter("profecionP"));
+        padre.setEstadoPersona(1);
 
-        boolean existeU = true;
-        boolean existePa = crm.exitePersona(padre);
-        boolean existeEs = crm.exitePersona(estudiante);
-        if (existePa && existeEs && existeU) {
+        int matriculaE = crm.newPersona(estudiante);
+        int matriculaP = crm.newPersona(padre);
 
-//            boolean u = cru.crearUsuario(us);
-            boolean est = crm.newPersona(estudiante);
-            boolean pa = crm.newPersona(padre);
-            if (pa && est) {
+        if (matriculaE != 0 && matriculaP != 0) {
 
-                Estudiante estu = new Estudiante();
+            Padre pad = new Padre();
+            pad.setIdPersona(matriculaP);
 
+            boolean banderap = crm.newPadre(pad);
+
+            int idPadreP = crm.IdPadre(pad);
+
+            Estudiante estu = new Estudiante();
+            estu.setIdTipoEstudiante(Integer.parseInt(request.getParameter("tipoEstudioE")));
+            estu.setEstudioMusica(request.getParameter("estudioMusicaE"));
+            estu.setDisponeInstruento(request.getParameter("disponeInstrumentoE"));
+            estu.setDescripcionE(request.getParameter("descripcionE"));
+            estu.setActivoE(1);
+            estu.setIdPersona(matriculaE);
+            estu.setIdPadre(idPadreP);
+
+            boolean banderae = crm.newEstudiante(estu);
+
+            if (banderap && banderae) {
                 out.print("true");
             } else {
                 out.print("false");
             }
-
-        } else {
-            out.print("false");
-        }
-
-        Materia mat = new Materia();
-        mat.setNombreMateria(request.getParameter("nombremateria"));
-        mat.setDescripcionMateria(request.getParameter("descripcionmateria"));
-        Materia_model matmodel = new Materia_model();
-        if (matmodel.insertarMateria(mat)) {
-            out.print("true");
         } else {
             out.print("false");
         }
 
     }
-
 }

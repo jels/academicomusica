@@ -13,20 +13,68 @@ import Modelo.*;
  */
 public class ControladorMatricula {
 
-    public boolean exitePersona(Persona per) {
-        return false;
+    private boolean existePersona(Persona per) {
+
+        Persona_model mp = new Persona_model();
+        return mp.existencia(per);
+
     }
 
-    public boolean newPersona(Persona p) {
-        return false;
+    public int newPersona(Persona p) {
+
+        int id;
+        if (!existePersona(p)) {
+            Persona_model mp = new Persona_model();
+            id = mp.newPerson(p);
+            System.out.println("idPersona= " + id);
+        } else {
+            id = 0;
+        }
+        return id;
     }
 
     public boolean newEstudiante(Estudiante est) {
-        return false;
+
+        Estudiante_model me = new Estudiante_model();
+        return me.newEstudiant(est);
+
     }
 
     public boolean newPadre(Padre pa) {
-        return false;
+
+        Padre_model mp = new Padre_model();
+        return mp.newFather(pa);
+
+    }
+
+    public int findIdPersona(Persona pe) {
+
+        Persona_model mp = new Persona_model();
+        return mp.findIdPerson(pe);
+
+    }
+
+    public boolean estadoMatricula() {
+
+        Persona_model mp = new Persona_model();
+        Matricula_model ma = new Matricula_model();
+
+        //cambia el estado del curso de activos a inactivos
+        //cambia el estado de todos los estudiantes activos a inactivos
+        return ma.finMatricula() && mp.finEstudiantes();
+
+    }
+
+    public int IdPadre(Padre pa) {
+
+        Padre_model padre = new Padre_model();
+        return padre.getIdPadre(pa);
+    }
+
+    public boolean newMatri(Matricula ma) {
+
+        Matricula_model matr = new Matricula_model();
+        return matr.newMatricula(ma);
     }
 
 }

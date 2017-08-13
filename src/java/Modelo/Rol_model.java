@@ -42,13 +42,13 @@ public class Rol_model {
         PreparedStatement pst;
 
         try {
-            String consulta = "INSERT INTO roles (idRol, nombreRol, descripcionRol) values(null,?,?)";
+            String consulta = "INSERT INTO roles (nombreRol, descripcionRol) values(?,?)";
             pst = cn.getConnection().prepareStatement(consulta);
             pst.setString(1, r.getNombreRol());
             pst.setString(2, r.getDescripcionRol());
             return pst.executeUpdate() == 1;
         } catch (Exception ex) {
-            System.err.println("Error Rol: " + ex);
+            System.err.println("Error crear_rol: " + ex);
             return false;
         }
     }
@@ -91,7 +91,7 @@ public class Rol_model {
             }
 
         } catch (Exception ex) {
-            System.err.println("Error: " + ex);
+            System.err.println("Error findRol: " + ex);
             return nombre;
         }
     }
