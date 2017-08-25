@@ -352,8 +352,7 @@ public class ControladorBody {
     }
 
     public String getViewNewEst() {
-
-//13
+        
         String htmlcode = ""
                 + "                    <form action=\"\" id=\"matriculaestudiante\">\n"
                 + "                        <h3 class=\"text-center\">Datos del Estudiante</h3>\n"

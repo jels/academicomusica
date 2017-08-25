@@ -2,22 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Modelo/Materia_model.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Servlets/RegistroUser.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Modelo/Matricula_model.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/web/css/js/validaciones.js</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Servlets/RegistrarPersona.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Modelo/Docente.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Controlador/ControladorMatricula.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Controlador/ControladorUsuarios.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/web/show.jsp</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Controlador/ControladorShow.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/web/new_matricula.jsp</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/web/show_docentes.jsp</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Modelo/Estudiante_model.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Controlador/ControladorNav.java</file>
-            <file>file:/C:/Users/WarMachine/Documents/NetBeansProjects/academicomusica/src/java/Controlador/ControladorBody.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
